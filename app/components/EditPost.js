@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 
@@ -9,6 +9,7 @@ import DispatchContext from "../DispatchContext";
 import Page from "./Page";
 import Container from "./Container";
 import LoadingIcon from "./LoadingIcon";
+import NotFound from "./NotFound";
 
 function EditPost() {
   const appState = useContext(StateContext);
@@ -31,6 +32,8 @@ function EditPost() {
     isSaving: false,
     id: useParams().id,
     sendCount: 0,
+    notFound: false,
+    permissionProblem: false,
     statusMessages: {
       isUpdated: "Post is up to date!",
       hasErrors: "There is an error above!",
@@ -48,6 +51,14 @@ function EditPost() {
         draft.title.prevSavedValue = value.title;
         draft.body.prevSavedValue = value.body;
         draft.isFetching = false;
+
+        if (appState.loggedIn) {
+          if (appState.user.username != value.author.username) {
+            draft.permissionProblem = true;
+          }
+        } else {
+          draft.permissionProblem = true;
+        }
         return;
       case "titleChange":
         if (value != draft.title.prevSavedValue) {
@@ -124,6 +135,9 @@ function EditPost() {
           draft.body.hasErrors = false;
         }
         return;
+      case "notFound":
+        draft.notFound = true;
+        return;
     }
   }
 
@@ -135,6 +149,8 @@ function EditPost() {
       isSaving,
       id,
       sendCount,
+      notFound,
+      permissionProblem,
       status,
       statusMessages,
     },
@@ -165,11 +181,11 @@ function EditPost() {
         const response = await Axios.get(`/post/${id}`, {
           cancelToken: request.token,
         });
-
-        dispatch({
-          type: "fetchComplete",
-          value: response.data,
-        });
+        if (response.data) {
+          dispatch({ type: "fetchComplete", value: response.data });
+        } else {
+          dispatch({ type: "notFound" });
+        }
       } catch (err) {
         console.log("There was a problem or the request was canceled.");
       }
@@ -221,6 +237,18 @@ function EditPost() {
       return () => request.cancel();
     }
   }, [sendCount]);
+
+  if (notFound) {
+    return <NotFound />;
+  }
+
+  if (permissionProblem) {
+    appDispatch({
+      type: "flashMessage",
+      value: "You do not have permission to edit that post!",
+    });
+    return <Redirect to="/" />;
+  }
 
   if (isFetching) {
     return (

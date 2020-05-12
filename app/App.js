@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useImmerReducer } from "use-immer";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import Axios from "axios";
 
 // Set a default/base url for all Axios requests
@@ -23,12 +24,15 @@ import SinglePost from "./components/SinglePost";
 import EditPost from "./components/EditPost";
 import FlashMessages from "./components/FlashMessages";
 import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
+import Search from "./components/Search";
 
 function App() {
   const baseState = {
     loggedIn: Boolean(localStorage.getItem("writescapeLoggedInUser")),
     user: JSON.parse(localStorage.getItem("writescapeLoggedInUser")),
     flashMessages: [],
+    isSearchOpen: false,
   };
 
   function reducer(draft, action) {
@@ -44,6 +48,12 @@ function App() {
         return;
       case "flashMessage":
         draft.flashMessages.push(action.value);
+        return;
+      case "openSearch":
+        draft.isSearchOpen = true;
+        return;
+      case "closeSearch":
+        draft.isSearchOpen = false;
         return;
     }
   }
@@ -90,7 +100,18 @@ function App() {
               <Route path="/profile/:username">
                 <Profile />
               </Route>
+              <Route>
+                <NotFound />
+              </Route>
             </Switch>
+            <CSSTransition
+              timeout={300}
+              in={state.isSearchOpen}
+              classNames="search-overlay"
+              unmountOnExit
+            >
+              <Search />
+            </CSSTransition>
             <Footer />
           </div>
         </BrowserRouter>

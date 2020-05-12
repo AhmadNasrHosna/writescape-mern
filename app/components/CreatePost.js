@@ -12,7 +12,7 @@ function CreatePost() {
 
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
-  const [wasSuccessful, setWasSuccessful] = useState(false);
+  const [postId, setPostId] = useState(false);
 
   async function handleSubmit(e) {
     // 1. Prevent the browser default behavior of submitting a form
@@ -25,22 +25,23 @@ function CreatePost() {
         body,
         token: appState.user.token,
       });
-
-      // 3. Change piece of state wasSuccessful to true [the post ID]
-      setWasSuccessful(response.data);
+      // 3. Change piece of state postId to the ID string of the returned response from the server
+      if (response.data) {
+        setPostId(response.data);
+      }
     } catch (err) {
       console.log("There was a problem!");
     }
   }
 
-  if (wasSuccessful) {
+  if (postId) {
     // Success message
     appDispatch({
       type: "flashMessage",
-      value: "Congrats, You successfully created a post!",
+      value: "Congrats, post was successfully created!",
     });
     // Redirecting to the newly created post.
-    return <Redirect to={`/post/${wasSuccessful}`} />;
+    return <Redirect to={`/post/${postId}`} />;
   }
 
   return (

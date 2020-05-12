@@ -305,7 +305,7 @@ textarea.tall-textarea {
   transition: opacity 0.45s ease-out, visibility 0.45s ease-out;
   visibility: hidden;
   position: absolute;
-  left: 50%;
+  left: calc(50% - (65px / 2));
   box-sizing: border-box;
   width: 65px;
   height: 65px;
