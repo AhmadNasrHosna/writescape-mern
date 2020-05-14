@@ -6,32 +6,33 @@ import { useParams } from "react-router-dom";
 
 import StateContext from "../StateContext";
 
-function ProfilePosts() {
+function ProfileFollowers({ followerCount }) {
   const appState = useContext(StateContext);
   const { username } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
+  const [followers, setFollowers] = useState([]);
 
   // Send off a network request to our backend server
   useEffect(() => {
     const request = Axios.CancelToken.source();
 
-    async function fetchPosts() {
+    async function fetchFollowers() {
       try {
-        const response = await Axios.get(`/profile/${username}/posts`, {
+        const response = await Axios.get(`/profile/${username}/followers`, {
           cancelToken: request.token,
         });
-        setPosts(response.data);
+        console.log(response.data);
+        setFollowers(response.data);
         setIsLoading(false);
       } catch (err) {
         console.log("There was a problem or the request was canceled.");
       }
     }
 
-    fetchPosts();
+    fetchFollowers();
 
     return () => request.cancel();
-  }, [username]);
+  }, [username, followerCount]);
 
   if (isLoading) return <LoadingIcon />;
 
@@ -43,36 +44,38 @@ function ProfilePosts() {
 
   function handleEmptyList() {
     // If the list empty
-    if (!posts.length) {
+    if (!followers.length) {
       if (isVisitorOwner()) {
+        return <p>You don&rsquo;t have any followers yet.</p>;
+      } else {
         return (
           <p>
-            You haven&rsquo;t created any posts yet;{" "}
-            <Link to="/create-post">create one now!</Link>
+            {username} doesn&rsquo;t have any followers yet.
+            {appState.loggedIn ? (
+              " Be the first to follow him!"
+            ) : (
+              <>
+                If you want to follow him you need to{" "}
+                <Link to="/">sign up</Link> for an account first.
+              </>
+            )}
           </p>
         );
-      } else {
-        return <p>{username} hasn&rsquo;t created any posts yet.</p>;
       }
     }
   }
 
   return (
     <div className="list-group">
-      {posts.map(({ title, createdDate, _id, author }, index) => {
-        const date = new Date(createdDate);
-        const dateFormatted = `
-          ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
-        `;
+      {followers.map(({ username, avatar }, index) => {
         return (
           <Link
-            to={`/post/${_id}`}
+            to={`/profile/${username}`}
             key={index}
             className="list-group-item list-group-item-action"
           >
-            <img className="avatar-tiny" src={author.avatar} />
-            <strong>{title}</strong>{" "}
-            <span className="text-muted small">on {dateFormatted}</span>
+            <img className="avatar-tiny" src={avatar} />
+            {username}
           </Link>
         );
       })}
@@ -81,4 +84,4 @@ function ProfilePosts() {
   );
 }
 
-export default ProfilePosts;
+export default ProfileFollowers;

@@ -30,7 +30,7 @@ import Search from "./components/Search";
 function App() {
   const baseState = {
     loggedIn: Boolean(localStorage.getItem("writescapeLoggedInUser")),
-    user: JSON.parse(localStorage.getItem("writescapeLoggedInUser")),
+    user: JSON.parse(localStorage.getItem("writescapeLoggedInUser")) || {},
     flashMessages: [],
     isSearchOpen: false,
   };

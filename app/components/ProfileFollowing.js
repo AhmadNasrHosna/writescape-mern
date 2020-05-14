@@ -6,29 +6,30 @@ import { useParams } from "react-router-dom";
 
 import StateContext from "../StateContext";
 
-function ProfilePosts() {
+function ProfileFollowing() {
   const appState = useContext(StateContext);
   const { username } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
+  const [following, setFollowing] = useState([]);
 
   // Send off a network request to our backend server
   useEffect(() => {
     const request = Axios.CancelToken.source();
 
-    async function fetchPosts() {
+    async function fetchFollowing() {
       try {
-        const response = await Axios.get(`/profile/${username}/posts`, {
+        const response = await Axios.get(`/profile/${username}/following`, {
           cancelToken: request.token,
         });
-        setPosts(response.data);
+        console.log(response.data);
+        setFollowing(response.data);
         setIsLoading(false);
       } catch (err) {
         console.log("There was a problem or the request was canceled.");
       }
     }
 
-    fetchPosts();
+    fetchFollowing();
 
     return () => request.cancel();
   }, [username]);
@@ -43,36 +44,26 @@ function ProfilePosts() {
 
   function handleEmptyList() {
     // If the list empty
-    if (!posts.length) {
+    if (!following.length) {
       if (isVisitorOwner()) {
-        return (
-          <p>
-            You haven&rsquo;t created any posts yet;{" "}
-            <Link to="/create-post">create one now!</Link>
-          </p>
-        );
+        return <p>You aren&rsquo;t following anyone yet.</p>;
       } else {
-        return <p>{username} hasn&rsquo;t created any posts yet.</p>;
+        return <p>{username} isn&rsquo;t following anyone yet.</p>;
       }
     }
   }
 
   return (
     <div className="list-group">
-      {posts.map(({ title, createdDate, _id, author }, index) => {
-        const date = new Date(createdDate);
-        const dateFormatted = `
-          ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
-        `;
+      {following.map(({ username, avatar }, index) => {
         return (
           <Link
-            to={`/post/${_id}`}
+            to={`/profile/${username}`}
             key={index}
             className="list-group-item list-group-item-action"
           >
-            <img className="avatar-tiny" src={author.avatar} />
-            <strong>{title}</strong>{" "}
-            <span className="text-muted small">on {dateFormatted}</span>
+            <img className="avatar-tiny" src={avatar} />
+            {username}
           </Link>
         );
       })}
@@ -81,4 +72,4 @@ function ProfilePosts() {
   );
 }
 
-export default ProfilePosts;
+export default ProfileFollowing;
