@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 
 import StateContext from "../StateContext";
 
+import PostCard from "./PostCard";
+
 function ProfilePosts() {
   const appState = useContext(StateContext);
   const { username } = useParams();
@@ -59,22 +61,8 @@ function ProfilePosts() {
 
   return (
     <div className="list-group">
-      {posts.map(({ title, createdDate, _id, author }, index) => {
-        const date = new Date(createdDate);
-        const dateFormatted = `
-          ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
-        `;
-        return (
-          <Link
-            to={`/post/${_id}`}
-            key={index}
-            className="list-group-item list-group-item-action"
-          >
-            <img className="avatar-tiny" src={author.avatar} />
-            <strong>{title}</strong>{" "}
-            <span className="text-muted small">on {dateFormatted}</span>
-          </Link>
-        );
+      {posts.map((post) => {
+        return <PostCard post={post} key={post._id} isAuthorHidden={true} />;
       })}
       {handleEmptyList()}
     </div>

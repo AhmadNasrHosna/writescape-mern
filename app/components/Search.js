@@ -1,13 +1,13 @@
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { useImmer } from "use-immer";
 import Axios from "axios";
+
 import DispatchContext from "../DispatchContext";
-import StateContext from "../StateContext";
+
+import PostCard from "./PostCard";
 
 function Search() {
   const appDispatch = useContext(DispatchContext);
-  const appState = useContext(StateContext);
   const [state, setState] = useImmer({
     searchTerm: "",
     searchResults: [],
@@ -133,31 +133,17 @@ function Search() {
                   <strong>Search Results</strong> ({state.searchResults.length}{" "}
                   {state.searchResults.length == 1 ? "item" : "items"} found)
                 </div>
-                {state.searchResults.map(
-                  ({ title, createdDate, _id, author }, index) => {
-                    const date = new Date(createdDate);
-                    const dateFormatted = `
-          ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
-        `;
-                    return (
-                      <Link
-                        onClick={() => appDispatch({ type: "closeSearch" })}
-                        to={`/post/${_id}`}
-                        key={index}
-                        className="list-group-item list-group-item-action"
-                      >
-                        <img className="avatar-tiny" src={author.avatar} />
-                        <strong>{title}</strong>{" "}
-                        <span className="text-muted small">
-                          by {author.username}
-                        </span>{" "}
-                        <span className="text-muted small">
-                          on {dateFormatted}
-                        </span>
-                      </Link>
-                    );
-                  }
-                )}
+                {state.searchResults.map((post) => {
+                  return (
+                    <PostCard
+                      post={post}
+                      key={post._id}
+                      onClick={() => {
+                        appDispatch({ type: "closeSearch" });
+                      }}
+                    />
+                  );
+                })}
               </div>
             )}
             {!Boolean(state.searchResults.length) && (
