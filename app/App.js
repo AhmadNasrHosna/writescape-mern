@@ -83,11 +83,9 @@ function App() {
     } else {
       localStorage.removeItem("writescapeLoggedInUser");
 
-      // Close the chat if it was opened on log out
+      // Close the chat on logging out if it was opened
       if (state.isChatOpen) {
-        if (!state.loggedIn) {
-          dispatch({ type: "closeChat" });
-        }
+        dispatch({ type: "closeChat" });
       }
     }
   }, [state.loggedIn]);
