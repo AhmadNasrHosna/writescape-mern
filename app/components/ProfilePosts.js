@@ -23,8 +23,10 @@ function ProfilePosts() {
         const response = await Axios.get(`/profile/${username}/posts`, {
           cancelToken: request.token,
         });
-        setPosts(response.data);
-        setIsLoading(false);
+        if (response.data) {
+          setPosts(response.data);
+          setIsLoading(false);
+        }
       } catch (err) {
         console.log("There was a problem or the request was canceled.");
       }

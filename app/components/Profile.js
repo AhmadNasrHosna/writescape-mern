@@ -9,6 +9,7 @@ import Page from "./Page";
 import Container from "./Container";
 import ProfilePosts from "./ProfilePosts";
 import ProfileFollow from "./ProfileFollow";
+import NotFound from "./NotFound";
 
 function Profile() {
   const { username } = useParams();
@@ -27,11 +28,15 @@ function Profile() {
         followingCount: "",
       },
     },
+    notFound: false,
   });
 
   // Send off a network request to our backend server
   // in order to get profile data
   useEffect(() => {
+    setState((draft) => {
+      draft.notFound = false;
+    });
     const request = Axios.CancelToken.source();
     async function fetchData() {
       try {
@@ -40,9 +45,15 @@ function Profile() {
           { token: appState.user.token },
           { cancelToken: request.token }
         );
-        setState((draft) => {
-          draft.profileData = response.data;
-        });
+        if (response.data) {
+          setState((draft) => {
+            draft.profileData = response.data;
+          });
+        } else {
+          setState((draft) => {
+            draft.notFound = true;
+          });
+        }
       } catch (err) {
         console.log("There was a problem or the request was canceled.");
       }
@@ -129,6 +140,10 @@ function Profile() {
     setState((draft) => {
       draft.stopFollowingRequestCount++;
     });
+  }
+
+  if (state.notFound) {
+    return <NotFound />;
   }
 
   return (

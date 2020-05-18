@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
+
 import DispatchContext from "../DispatchContext";
 import StateContext from "../StateContext";
-import ReactTooltip from "react-tooltip";
 
 function HeaderLoggedIn() {
   const appDispatch = useContext(DispatchContext);
@@ -10,6 +11,10 @@ function HeaderLoggedIn() {
 
   function handleLogOut() {
     appDispatch({ type: "logout" });
+    appDispatch({
+      type: "flashMessage",
+      value: "You have successfully logged out!",
+    });
   }
 
   function openSearchHandler(e) {
@@ -31,12 +36,22 @@ function HeaderLoggedIn() {
       </a>{" "}
       <ReactTooltip place="bottom" id="search" className="custom-tooltip" />
       <span
-        className="mr-2 header-chat-icon text-white"
+        className={
+          "mr-2 header-chat-icon " +
+          (appState.unreadChatCount ? "text-danger" : "text-white")
+        }
         data-tip="Chat"
         data-for="chat"
+        onClick={() => appDispatch({ type: "toggleChat" })}
       >
         <i className="fas fa-comment"></i>
-        <span className="chat-count-badge text-white"> </span>
+        {appState.unreadChatCount ? (
+          <span className="chat-count-badge text-white">
+            {appState.unreadChatCount < 9 ? appState.unreadChatCount : "9+"}
+          </span>
+        ) : (
+          ""
+        )}
       </span>{" "}
       <ReactTooltip place="bottom" id="chat" className="custom-tooltip" />
       <Link
