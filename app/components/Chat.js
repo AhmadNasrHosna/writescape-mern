@@ -44,7 +44,9 @@ function Chat() {
 
   useEffect(() => {
     // Reopening socket connection on log back in
-    socket.current = io("http://localhost:8080");
+    socket.current = io(
+      process.env.BACKENDURL || "https://writescape-api.herokuapp.com"
+    );
 
     // Receive messages from chat server
     socket.current.on("chatFromServer", (message) => {

@@ -7,7 +7,8 @@ import { CSSTransition } from "react-transition-group";
 import Axios from "axios";
 
 // Set a default/base url for all Axios requests
-Axios.defaults.baseURL = "http://localhost:8080";
+Axios.defaults.baseURL =
+  process.env.BACKENDURL || "https://writescape-api.herokuapp.com";
 
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";

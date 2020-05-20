@@ -20,7 +20,7 @@ export default function Footer() {
       <p className="m-0">
         Copyright &copy; 2020{" "}
         <a href="/" className="text-muted">
-          ComplexApp
+          Writescape
         </a>
         . All rights reserved.
       </p>
