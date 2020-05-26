@@ -1,0 +1,72 @@
+.o-form {
+  &__group {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  input:not([type="submit"]),
+  textarea {
+    padding: 1.2rem 1rem;
+    color: hsl(var(--color-primary-h), 15%, 25%);
+    border: 1px solid currentColor;
+    font-size: rem(17px);
+    transition: all 250ms ease;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+
+    &::-moz-placeholder {
+      color: hsl(var(--color-primary-h), 5%, 63%);
+    }
+
+    &::-webkit-input-placeholder {
+      color: hsl(var(--color-primary-h), 5%, 63%);
+    }
+
+    &::-ms-input-placeholder {
+      color: hsl(var(--color-primary-h), 5%, 63%);
+    }
+
+    &::placeholder {
+      color: hsl(var(--color-primary-h), 5%, 63%);
+      transition: all 550ms ease;
+    }
+
+    &:focus {
+      background-color: var(--color-text-800) !important;
+      color: #fff;
+      border-color: var(--color-text-800);
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 12%, 88%, 1);
+    }
+
+    &:hover {
+      background-color: hsla(var(--color-primary-h), 12%, 88%, 1);
+
+      &::-moz-placeholder {
+        color: hsl(var(--color-primary-h), 13%, 58%);
+      }
+
+      &::-webkit-input-placeholder {
+        color: hsl(var(--color-primary-h), 13%, 58%);
+      }
+
+      &::-ms-input-placeholder {
+        color: hsl(var(--color-primary-h), 13%, 58%);
+      }
+
+      &::placeholder {
+        color: hsl(var(--color-primary-h), 13%, 58%);
+        transition: all 550ms ease;
+      }
+    }
+  }
+
+  label {
+    color: hsl(var(--color-primary-h), 15%, 35%);
+    font-weight: 500;
+  }
+}

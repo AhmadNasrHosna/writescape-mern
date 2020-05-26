@@ -1,0 +1,33 @@
+/* ==========================================================================
+   #CONTAINER (GLOBAL)
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ * the outer container for components and it usually provides a fixed width.
+ */
+
+:root {
+  --container-width-xs: rem(600px);
+  --container-width-sm: rem(976px);
+  --container-width-md: rem(1024px);
+  --container-width-lg: rem(1200px);
+  --container-padding: var(--gap);
+}
+
+.o-container {
+  width: calc(100% - var(--container-padding));
+  @media (min-width: 36em) {
+    width: calc(100% - var(--container-padding) * 2);
+  }
+  max-width: var(--container-width-lg);
+  margin: 0 auto;
+
+  &--narrow {
+    max-width: rem(800px);
+  }
+
+  &--medium {
+    max-width: rem(1054px);
+  }
+}

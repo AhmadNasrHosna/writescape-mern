@@ -13,14 +13,14 @@ function Header({ staticEmpty }) {
   );
 
   return (
-    <header className="header-bar bg-primary mb-3">
-      <div className="container d-flex flex-column flex-md-row align-items-center p-3">
-        <h4 className="my-0 mr-md-auto font-weight-normal">
-          <Link to="/" className="text-white">
-            Writescape
-          </Link>
-        </h4>
-        {!staticEmpty ? headerContent : ""}
+    <header className="p-header">
+      <div className="o-container">
+        <div className="p-header__inner">
+          <h1 className="p-header__logo">
+            <Link to="/">Writescape</Link>
+          </h1>
+          {!staticEmpty ? headerContent : ""}
+        </div>
       </div>
     </header>
   );

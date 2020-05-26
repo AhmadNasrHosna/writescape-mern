@@ -1,0 +1,54 @@
+///* ======================================================================== /* ======================================================================== /* ======================================================================== /* ======================================================================== /* ======================================================================== /* ======================================================================== /* ======================================================================== /* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+/**
+ * Variables
+ *
+ * The majority of the configuration for the toolkit.
+ */
+
+:root {
+  // MEDIA BREAKPOINTS
+  $bp-xs: 35.99875em; //~ 575.98px      1em == 16px
+  $bp-sm: 36em; //~ 576px
+  $bp-as: 47.99875em; //~ 767.98px
+  $bp-md: 48em; //~ 768px
+  $bp-lg: 62em; //~ 992px
+  $bp-xl: 75em; //~ 1200px
+
+  // OTHER CUSTOM VARIABLES
+  --gap: 2rem;
+  --color-primary-h: 6;
+  --color-primary-s: 55%;
+  --color-primary-l: 42%;
+  --color-primary: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    var(--color-primary-l)
+  );
+  --color-secondary-h: 34;
+  --color-secondary-s: 42%;
+  --color-secondary-l: 85%;
+  --color-secondary: hsl(
+    var(--color-secondary-h),
+    var(--color-secondary-s),
+    var(--color-secondary-l)
+  );
+  --color-gradient: linear-gradient(
+    45deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  --color-text-900: hsl(var(--color-primary-h), 15%, 15%);
+  --color-text-800: hsl(var(--color-primary-h), 15%, 20%);
+  --color-link: hsl(var(--color-primary-h), 100%, 42%);
+
+  --color-border: hsl(var(--color-primary-h), 10%, 88%);
+  --font-family-plain: "Archivo", system-ui;
+  --font-family-special: "Archivo Narrow", system-ui;
+  --font-family-display: "Sporting Grotesque", "Archivo Narrow", system-ui;
+}

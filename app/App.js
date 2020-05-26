@@ -29,6 +29,8 @@ import NotFound from "./components/NotFound";
 const Search = React.lazy(() => import("./components/Search"));
 const Chat = React.lazy(() => import("./components/Chat"));
 import LoadingIcon from "./components/LoadingIcon";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
 
 function App() {
   const baseState = {
@@ -126,34 +128,42 @@ function App() {
           <div className="o-page">
             <FlashMessages messages={state.flashMessages} />
             <Header />
-            <Suspense fallback={<LoadingIcon />}>
-              <Switch>
-                <Route path="/" exact>
-                  {state.loggedIn ? <Home /> : <HomeGuest />}
-                </Route>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route path="/terms">
-                  <Terms />
-                </Route>
-                <Route path="/create-post">
-                  <CreatePost />
-                </Route>
-                <Route path="/post/:id" exact>
-                  <SinglePost />
-                </Route>
-                <Route path="/post/:id/edit" exact>
-                  <EditPost />
-                </Route>
-                <Route path="/profile/:username">
-                  <Profile />
-                </Route>
-                <Route>
-                  <NotFound />
-                </Route>
-              </Switch>
-            </Suspense>
+            <main className="o-main">
+              <Suspense fallback={<LoadingIcon />}>
+                <Switch>
+                  <Route path="/" exact>
+                    {state.loggedIn ? <Home /> : <HomeGuest />}
+                  </Route>
+                  <Route path="/about">
+                    <About />
+                  </Route>
+                  <Route path="/terms">
+                    <Terms />
+                  </Route>
+                  <Route path="/create-post">
+                    <CreatePost />
+                  </Route>
+                  <Route path="/post/:id" exact>
+                    <SinglePost />
+                  </Route>
+                  <Route path="/post/:id/edit" exact>
+                    <EditPost />
+                  </Route>
+                  <Route path="/profile/:username">
+                    <Profile />
+                  </Route>
+                  <Route path="/login">
+                    {state.loggedIn ? <Home /> : <LoginPage />}
+                  </Route>
+                  <Route path="/register">
+                    {state.loggedIn ? <Home /> : <RegisterPage />}
+                  </Route>
+                  <Route>
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Suspense>
+            </main>
             <CSSTransition
               timeout={300}
               in={state.isSearchOpen}
@@ -176,6 +186,8 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector("#app"));
+
+import "./assets/styles/styles.css";
 
 if (module.hot) {
   module.hot.accept();

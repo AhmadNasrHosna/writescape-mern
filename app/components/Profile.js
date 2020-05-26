@@ -1,5 +1,11 @@
 import React, { useEffect, useContext } from "react";
-import { useParams, NavLink, Switch, Route } from "react-router-dom";
+import {
+  useParams,
+  NavLink,
+  Switch,
+  Route,
+  useRouteMatch,
+} from "react-router-dom";
 import { useImmer } from "use-immer";
 import Axios from "axios";
 
@@ -13,6 +19,8 @@ import NotFound from "./NotFound";
 
 function Profile() {
   const { username } = useParams();
+  const match = useRouteMatch();
+  console.log(match);
   const appState = useContext(StateContext);
   const [state, setState] = useImmer({
     followActionLoading: false,
@@ -177,38 +185,28 @@ function Profile() {
         </h2>
 
         <div className="profile-nav nav nav-tabs pt-2 mb-4">
-          <NavLink
-            exact
-            to={`/profile/${username}`}
-            className="nav-item nav-link"
-          >
+          <NavLink exact to={`${match.url}`} className="nav-item nav-link">
             Posts: {state.profileData.counts.postCount}
           </NavLink>
-          <NavLink
-            to={`/profile/${username}/followers`}
-            className="nav-item nav-link"
-          >
+          <NavLink to={`${match.url}/followers`} className="nav-item nav-link">
             Followers: {state.profileData.counts.followerCount}
           </NavLink>
-          <NavLink
-            to={`/profile/${username}/following`}
-            className="nav-item nav-link"
-          >
+          <NavLink to={`${match.url}/following`} className="nav-item nav-link">
             Following: {state.profileData.counts.followingCount}
           </NavLink>
         </div>
 
         <Switch>
-          <Route exact path={"/profile/:username"}>
+          <Route exact path={`${match.path}`}>
             <ProfilePosts />
           </Route>
-          <Route path={"/profile/:username/followers"}>
+          <Route path={`${match.path}/followers`}>
             <ProfileFollow
               urlPath="/followers"
               followerCount={state.profileData.counts.followerCount}
             />
           </Route>
-          <Route path={"/profile/:username/following"}>
+          <Route path={`${match.path}/following`}>
             <ProfileFollow
               urlPath="/following"
               followingCount={state.profileData.counts.followingCount}

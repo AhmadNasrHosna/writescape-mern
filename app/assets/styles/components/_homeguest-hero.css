@@ -1,0 +1,29 @@
+.c-homeguest-hero {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    flex-basis: 50%;
+    max-width: 50%;
+    @mixin center-cy;
+  }
+
+  &__illustration {
+    flex-basis: 47.5%;
+    max-width: 47.5%;
+
+    form {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-size: rem(60px);
+    font-family: var(--font-family-display);
+    letter-spacing: -0.06em;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-800);
+  }
+}

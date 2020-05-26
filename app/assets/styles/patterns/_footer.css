@@ -1,0 +1,63 @@
+.p-footer {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8rem 4rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0;
+  overflow: hidden;
+
+  &__copy {
+    font-weight: 400;
+    font-size: rem(16px);
+    letter-spacing: 0;
+    color: hsl(var(--color-primary-h), 100%, 92%);
+
+    a {
+      background: hsl(var(--color-primary-h), 100%, 92%);
+      padding: 0.45em 0.5em 0;
+      font-family: var(--font-family-display);
+      font-weight: bold;
+      letter-spacing: -0.04em;
+      font-size: rem(13px);
+      color: var(--color-primary) !important;
+    }
+  }
+
+  &__nav {
+    ul {
+      display: flex;
+      justify-content: space-around;
+      max-width: rem(729px);
+      margin: auto;
+      font-size: rem(19px);
+    }
+
+    a {
+      padding: 0.2em 0.2em;
+    }
+  }
+
+  &__logo {
+    font-size: 12vw;
+    line-height: 1;
+    margin-bottom: -0.325em;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: var(--font-family-display);
+    font-weight: bold;
+    letter-spacing: -0.07em;
+  }
+
+  a {
+    color: inherit;
+    border-bottom: 2px solid transparent;
+    line-height: 1.1;
+
+    &:hover {
+      border-bottom-color: currentColor;
+    }
+  }
+}

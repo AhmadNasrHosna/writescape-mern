@@ -1,0 +1,9 @@
+/* Paddings */
+
+.u-no-pv { padding-block: 0; }
+
+.u-no-pt { padding-top: 0; }
+
+.u-mt-1 { margin-top: rem(10px); }
+
+.u-pv-2 { padding-block: rem(17.5px); }

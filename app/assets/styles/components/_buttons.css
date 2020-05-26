@@ -1,0 +1,59 @@
+.c-button {
+  display: inline-flex;
+  justify-content: center;
+  padding: 0.5em 1.75em;
+  margin: 0;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 250ms ease, transform 0ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-weight: 400;
+  border: 1px solid transparent;
+}
+
+.c-button:hover {
+  box-shadow: 0 0 0 3px hsl(var(--color-primary-h), 36%, 97%, 0.5),
+    0 4px 10px rgba(73, 56, 54, 0.35);
+}
+
+.c-button:focus {
+  box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 12%, 88%, 1),
+    0 4px 10px rgba(73, 56, 54, 0.25);
+}
+
+.c-button:active {
+  transform: scale(0.99);
+}
+
+.c-button--inverse {
+  color: var(--color-text-800);
+  border-color: var(--color-text-800);
+
+  &:hover {
+    color: #fff;
+    background-color: var(--color-text-800);
+  }
+}
+
+.c-button--medium {
+  font-size: rem(17px);
+}
+
+.c-button--large {
+  font-size: rem(19px);
+}
+
+.c-button--primary {
+  background-color: var(--color-text-800);
+  color: #fff;
+}
+
+.c-button--shadow {
+  box-shadow: 0 4px 10px hsla(var(--color-primary-h), 15%, 25%, 0.25);
+}
+
+.c-button--100\% {
+  width: 100%;
+}

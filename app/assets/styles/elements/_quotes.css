@@ -1,0 +1,52 @@
+/* ==========================================================================
+   #QUOTES
+   ========================================================================== */
+
+/**
+ * Basic styling for quoted text.
+ */
+
+q {
+  quotes: "�" "�";
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+blockquote {
+  // quotes: "�" "�";
+  background: hsl(var(--color-primary-h), var(--color-primary-s), 85%);
+  padding: 1.2em 2em;
+  margin-left: 0;
+  margin-right: 0;
+  color: hsl(var(--color-primary-h), var(--color-primary-s), 23%);
+  border-radius: 10px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: 0.15em;
+    top: 0.15em;
+    content: "\201C";
+    color: var(--color-link);
+    font-size: 3em;
+    line-height: 1;
+  }
+
+  > * + * {
+    margin-top: calc(var(--gap) * 0.5);
+  }
+
+  > * + h3 {
+    margin-top: calc(var(--gap) * 0.9);
+  }
+
+  li + li {
+    margin-top: 0.5rem;
+  }
+}

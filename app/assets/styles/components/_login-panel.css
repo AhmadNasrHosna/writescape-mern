@@ -1,0 +1,102 @@
+.c-login-panel {
+  width: 50%;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 18px 33px hsla(var(--color-primary-h), 15%, 25%, 0.25);
+
+  &__or {
+    position: absolute;
+    background: hsl(var(--color-primary-h), 100%, 92%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    left: 50%;
+    top: calc(50% + -4px);
+    transform: translate(-50%, -50%);
+    @mixin center-xy;
+    text-transform: uppercase; // u-uppercase
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    z-index: 3;
+    box-shadow: 2px 0 10px hsla(var(--color-primary-h), 7%, 34%, 0.1);
+    font-size: rem(16px);
+  }
+
+  &__header {
+    display: flex;
+    position: relative;
+
+    button {
+      @mixin button-reset;
+      --border: 3px solid hsl(var(--color-primary-h), 15%, 75%);
+      transition: all 250ms ease, transform 0ms ease;
+      flex-basis: 50%;
+      max-width: 50%;
+      color: var(--color-text-800);
+      background: #fff;
+      font-weight: bold;
+      letter-spacing: -0.05em;
+      font-family: var(--font-family-display);
+      font-size: rem(27.5px);
+      padding: 0.9em 1.75em calc(0.7em + 8px);
+      box-shadow: 0 13px 20px hsla(var(--color-primary-h), 35%, 20%, 0.12);
+      border-top: var(--border);
+      position: relative;
+      user-select: none;
+      -webkit-user-drag: none;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: calc(100% + 3px);
+        height: 8px;
+        background-color: hsla(var(--color-primary-h), 40%, 75%, 1);
+        transition: all 250ms ease, transform 0ms ease;
+      }
+
+      &:first-of-type {
+        border-left: var(--border);
+        border-radius: 10px 0 0 0;
+
+        &::after {
+          left: -3px;
+        }
+      }
+
+      &:last-of-type {
+        border-right: var(--border);
+        border-radius: 0 10px 0 0;
+
+        &::after {
+          right: -3px;
+        }
+      }
+
+      &:hover {
+        background: hsl(var(--color-primary-h), 15%, 75%);
+
+        &::after {
+          background-color: hsla(var(--color-primary-h), 40%, 72%, 1);
+        }
+      }
+
+      &.is-active {
+        --border: 3px solid var(--color-text-900);
+        color: hsla(var(--color-primary-h), 13%, 89%, 1);
+        background: var(--color-text-900);
+        cursor: default;
+      }
+    }
+  }
+
+  &__form {
+    background: #fff;
+    padding: 2rem 2rem 3rem;
+    border: 3px solid hsl(var(--color-primary-h), 15%, 75%);
+    border-top: 0;
+  }
+}

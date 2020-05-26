@@ -1,11 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function Container(props) {
+function Container({ wide, children }) {
   return (
     <div
-      className={"container py-md-5 " + (props.wide ? "" : "container--narrow")}
+      className={
+        "o-container " +
+        (wide == true
+          ? ""
+          : wide == "medium"
+          ? "o-container--medium"
+          : "o-container--narrow")
+      }
     >
-      {props.children}
+      {children}
     </div>
   );
 }

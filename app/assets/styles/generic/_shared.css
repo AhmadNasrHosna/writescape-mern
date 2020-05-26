@@ -1,5 +1,61 @@
-body {
-  font-family: "Public Sans", sans-serif;
+/* ===================================================
+   #SHARED
+   =================================================== */
+
+/**
+ * Shared declarations for certain elements.
+ */
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+
+embed,
+audio,
+canvas,
+iframe,
+img,
+video {
+  max-width: 100%; /* [1] */
+  font-style: italic; /* [2] */
+  vertical-align: middle; /* [3] */
+  height: auto;
+}
+
+/* ------- */
+
+input,
+select,
+textarea,
+button,
+.c-button {
+  color: inherit;
+  font: inherit;
+  outline: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+header + .container {
+  flex-grow: 1;
+}
+
+footer {
+  margin-top: auto;
 }
 
 .header-bar {
@@ -55,9 +111,9 @@ body {
 }
 
 .body-content {
-  font-size: 1.2rem;
-  line-height: 1.75;
-  color: #292929;
+  font-size: rem(20px);
+  line-height: 1.55;
+  color: var(--color-text-dark);
 }
 
 .body-content p,
@@ -72,24 +128,15 @@ body {
   color: #ffffff;
 }
 
-.input-dark:focus {
-  color: #ffffff;
-  background-color: #555;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.input-dark::-moz-placeholder {
+  color: #888;
 }
 
 .input-dark::-webkit-input-placeholder {
   color: #888;
 }
-.input-dark::-moz-placeholder {
-  color: #888;
-}
+
 .input-dark:-ms-input-placeholder {
-  color: #888;
-}
-.input-dark:-moz-placeholder {
   color: #888;
 }
 
@@ -101,6 +148,14 @@ body {
 
 .display-3 {
   font-size: 4.2rem;
+}
+
+.input-dark:focus {
+  color: #ffffff;
+  background-color: #555;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 @media (max-width: 1199px) {
@@ -120,13 +175,12 @@ body {
 }
 
 .liveValidateMessage {
-  top: -6px;
+  top: -5px;
   position: absolute;
-  z-index: 1;
-  padding-top: 6px;
-  padding-bottom: 16px;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  padding: 0.5rem 1rem;
+  background: hsla(6, 50%, 45%, 1);
+  color: #fff;
+  font-size: rem(15px);
 }
 
 .liveValidateMessage--visible {
@@ -588,11 +642,4 @@ textarea.tall-textarea {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-header + .container {
-  flex-grow: 1;
-}
-
-footer {
-  margin-top: auto;
 }

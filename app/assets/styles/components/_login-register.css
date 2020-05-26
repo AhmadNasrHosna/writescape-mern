@@ -1,0 +1,23 @@
+.c-login,
+.c-register {
+  display: flex;
+  align-items: flex-start;
+
+  &__form {
+    flex-basis: 40%;
+    max-width: 40%;
+
+    /* form {
+      background: #fff;
+      padding: 1.5rem 2rem 2.85rem;
+      border: 3px solid var(--color-text-800);
+      box-shadow: 0 18px 33px hsla(var(--color-primary-h), 15%, 25%, 0.25);
+    } */
+  }
+
+  &__illustration {
+    flex-basis: 60%;
+    max-width: 60%;
+    margin-top: -11rem;
+  }
+}

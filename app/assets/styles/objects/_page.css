@@ -1,0 +1,19 @@
+/* ============================================================================
+   PAGE (GLOBAL)
+   ========================================================================= */
+
+/**
+ * the first element after BODY.
+ * the most outer container which usually contains max-width: 100vw and overflow: hidden.
+ */
+
+// Outer container including header
+.o-page {
+  min-height: 100vh;
+
+  @media (min-width: 36em) {
+    display: grid;
+    grid-template-rows: auto auto 2.5rem;
+  }
+}
+

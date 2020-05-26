@@ -1,0 +1,15 @@
+.c-logo {
+  background: hsl(32, 71%, 86%);
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  place-content: center;
+  margin-right: 1rem;
+
+  svg {
+    fill: var(--color-text)
+  }
+}

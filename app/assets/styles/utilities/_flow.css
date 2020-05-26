@@ -1,0 +1,109 @@
+/* ===================================================
+   #FLOW
+   =================================================== */
+
+/**
+ * A tiny utility
+ * works with elements in layouts archticture layer, to overide elements later if we have to.
+ * helps with rhythm by adding margin to siblings
+ * (namespace: u-)
+ *
+ * --flow-space: The amount of space between siblings with fallback;
+ */
+
+
+.u-flow {
+  // Default
+  --flow-space-g     : rem(30px); // global
+  --flow-space-p     : rem(20px); // paragraghs
+  --flow-space-p-to-h: rem(20px); // a paragraph after any heading
+
+  // Any element after any direct child element will have:
+  > * + * {
+    margin-top: rem(36px); // fallback
+    margin-top: var(--flow-space-g);
+  }
+
+  // Any paragraph after any paragraph will have:
+  p + p {
+    margin-top: rem(20px); // fallback
+    margin-top: var(--flow-space-p);
+  }
+
+  // Any paragraph after any heading level will have:
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h5 + p,
+  h6 + p  {
+    margin-top: rem(20px); // fallback
+    margin-top: var(--flow-space-p-to-h);
+  }
+}
+
+.u-flow--4 {
+  --flow-space-g     : rem(40px);
+  --flow-space-p     : rem(28px);
+  --flow-space-p-to-h: rem(28px);
+}
+
+.u-flow--5 {
+  --flow-space-g     : rem(50px);
+  --flow-space-p     : rem(32px);
+  --flow-space-p-to-h: rem(32px);
+}
+
+.u-flow--6 {
+  --flow-space-g     : rem(60px);
+  --flow-space-p     : rem(36px);
+  --flow-space-p-to-h: rem(36px);
+}
+
+.u-flow__g-s1  { --flow-space-g    : rem(10px); }
+
+.u-flow__g-s2  { --flow-space-g    : rem(20px); }
+
+.u-flow__g-s3  { --flow-space-g    : rem(30px); }
+
+.u-flow__g-s4  { --flow-space-g    : rem(40px); }
+
+.u-flow__g-s5  { --flow-space-g    : rem(50px); }
+
+.u-flow__g-s6  { --flow-space-g    : rem(60px); }
+
+// ===
+
+.u-flow__p-s1    { --flow-space-p      : rem(10px); }
+
+.u-flow__p-s2    { --flow-space-p      : rem(20px); }
+
+.u-flow__p-s3    { --flow-space-p      : rem(30px); }
+
+.u-flow__p-s4    { --flow-space-p      : rem(40px); }
+
+.u-flow__p-s5    { --flow-space-p      : rem(50px); }
+
+.u-flow__p-s6    { --flow-space-p      : rem(60px); }
+
+// ===
+
+.u-flow__ptoh-s1 { --flow-space-p-to-h : rem(10px); }
+
+.u-flow__ptoh-s2 { --flow-space-p-to-h : rem(20px); }
+
+.u-flow__ptoh-s3 { --flow-space-p-to-h : rem(30px); }
+
+.u-flow__ptoh-s4 { --flow-space-p-to-h : rem(40px); }
+
+.u-flow__ptoh-s5 { --flow-space-p-to-h : rem(50px); }
+
+.u-flow__ptoh-s6 { --flow-space-p-to-h : rem(60px); }
+
+// === Reset
+
+.u-flow__g-reset   { --flow-space-g   : 0;}
+
+.u-flow__p-reset     { --flow-space-p     : 0;}
+
+.u-flow__ptoh-reset  { --flow-space-p-to-h: 0;}
