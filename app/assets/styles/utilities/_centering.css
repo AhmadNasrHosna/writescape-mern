@@ -2,3 +2,7 @@
   display: grid;
   justify-content: center;
 }
+
+.u-va-middle {
+  vertical-align: middle;
+}

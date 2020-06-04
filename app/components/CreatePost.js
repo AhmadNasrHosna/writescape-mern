@@ -45,41 +45,50 @@ function CreatePost() {
   }
 
   return (
-    <Page title="Create New Post">
-      <Container>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="post-title" className="text-muted mb-1">
-              <small>Title</small>
-            </label>
-            <input
-              onChange={(e) => setTitle(e.target.value)}
-              autoFocus
-              name="title"
-              id="post-title"
-              className="form-control form-control-lg form-control-title"
-              type="text"
-              placeholder=""
-              autoComplete="off"
-            />
-          </div>
+    <Page title="Create New Post" scope="createpost">
+      <section className="o-section o-section--createpost">
+        <Container>
+          <div className="o-section__inner u-flow">
+            <h2 class="o-section__title o-section__title--md">
+              Create new post
+            </h2>
+            <form class="o-form o-form--accent" onSubmit={handleSubmit}>
+              <div className="o-form__group">
+                <label htmlFor="post-title">
+                  <small>Title</small>
+                </label>
+                <input
+                  onChange={(e) => setTitle(e.target.value)}
+                  autoFocus
+                  name="title"
+                  id="post-title"
+                  className="o-form__title"
+                  type="text"
+                  placeholder=""
+                  autoComplete="off"
+                />
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="post-body" className="text-muted mb-1 d-block">
-              <small>Body Content</small>
-            </label>
-            <textarea
-              onChange={(e) => setBody(e.target.value)}
-              name="body"
-              id="post-body"
-              className="body-content tall-textarea form-control"
-              type="text"
-            ></textarea>
-          </div>
+              <div className="o-form__group">
+                <label htmlFor="post-body">
+                  <small>Body Content</small>
+                </label>
+                <textarea
+                  onChange={(e) => setBody(e.target.value)}
+                  name="body"
+                  id="post-body"
+                  className="body-content tall-textarea form-control"
+                  type="text"
+                ></textarea>
+              </div>
 
-          <button className="btn btn-primary">Save New Post</button>
-        </form>
-      </Container>
+              <button className="c-button c-button--medium c-button--accent">
+                Publish
+              </button>
+            </form>
+          </div>
+        </Container>
+      </section>
     </Page>
   );
 }

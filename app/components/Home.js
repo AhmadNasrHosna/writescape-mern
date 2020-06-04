@@ -43,35 +43,47 @@ function Home() {
 
   return (
     <Page title="Your Feed">
-      <Container>
-        {feed.length > 0 && (
-          <div className="c-feed">
-            <h2 className="text-center mb-4">
-              The latest from those you follow
-            </h2>
-            <div className="list-group">
-              {feed.map((post) => {
-                return <PostCard post={post} key={post._id} />;
-              })}
-            </div>
+      <section className="o-section o-section--feed">
+        <Container>
+          <div className="c-feed u-flow u-flow--5">
+            <img
+              className="c-feed__illustration"
+              src="../assets/images/svg/feed-1-illustration.svg"
+              alt="Feed Page Illustration"
+            />
+            {feed.length > 0 && (
+              <>
+                <h2 className="o-section__title o-section__title--sm u-align-center">
+                  The latest from those you follow
+                </h2>
+                <div className="c-feed__list u-flow__g-s6">
+                  {feed.map((post) => {
+                    return <PostCard post={post} key={post._id} />;
+                  })}
+                </div>
+              </>
+            )}
+            {feed.length == 0 && (
+              <>
+                <h2 className="o-section__title o-section__title--sm u-align-center">
+                  Hello{" "}
+                  <strong className="u-color-text-900">
+                    {appState.user.username}
+                  </strong>
+                  , your feed is empty.
+                </h2>
+                <p className="c-feed__emptyfeedmessage">
+                  Your feed displays the latest posts from the people you
+                  follow. If you don&rsquo;t have any friends to follow
+                  that&rsquo;s okay; you can use the &ldquo;Search&rdquo;
+                  feature in the top menu bar to find content written by people
+                  with similar interests and then follow them.
+                </p>
+              </>
+            )}
           </div>
-        )}
-        {feed.length == 0 && (
-          <div className="c-feed">
-            <h2 className="text-center">
-              Hello <strong>{appState.user.username}</strong>, your feed is
-              empty.
-            </h2>
-            <p className="lead text-muted text-center">
-              Your feed displays the latest posts from the people you follow. If
-              you don&rsquo;t have any friends to follow that&rsquo;s okay; you
-              can use the &ldquo;Search&rdquo; feature in the top menu bar to
-              find content written by people with similar interests and then
-              follow them.
-            </p>
-          </div>
-        )}
-      </Container>
+        </Container>
+      </section>
     </Page>
   );
 }

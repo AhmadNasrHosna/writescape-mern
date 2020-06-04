@@ -105,6 +105,10 @@
 @import "components/_homeguest-hero";
 @import "components/_login-panel";
 @import "components/_login-register";
+@import "components/_alert";
+@import "components/_post-card";
+@import "components/_feed";
+@import "components/_avatar";
 
 /**
  * Patterns. (namespace: p-)

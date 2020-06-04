@@ -24,11 +24,11 @@ function HeaderLoggedIn() {
   }
 
   return (
-    <div className="flex-row my-3 my-md-0">
+    <div className="p-header__loggedin">
       <a
         onClick={openSearchHandler}
         href="#0"
-        className="text-white mr-2 header-search-icon"
+        className="header-search-icon"
         data-tip="Search"
         data-for="search"
       >
@@ -56,19 +56,34 @@ function HeaderLoggedIn() {
       <ReactTooltip place="bottom" id="chat" className="custom-tooltip" />
       <Link
         to={`/profile/${appState.user.username}`}
-        className="mr-2"
         data-tip="My Profile"
         data-for="profile"
       >
-        <img className="small-header-avatar" src={appState.user.avatar} />
+        <div className="c-avatar c-avatar--red">
+          <span className="c-avatar__firstletter">
+            {appState.user.username.slice(0, 1).toUpperCase()}{" "}
+          </span>
+          <img
+            src={appState.user.avatar}
+            alt={`Profile picture of ${appState.user.username}`}
+          />
+        </div>
       </Link>{" "}
       <ReactTooltip place="bottom" id="profile" className="custom-tooltip" />
-      <Link to="/create-post" className="btn btn-sm btn-success mr-2">
-        Create Post
-      </Link>{" "}
-      <button onClick={handleLogOut} className="btn btn-sm btn-secondary">
-        Sign Out
-      </button>
+      <div className="p-header__nav-btns">
+        <Link
+          to="/create-post"
+          className="c-button c-button--inverse c-button--small"
+        >
+          Create Post
+        </Link>{" "}
+        <button
+          onClick={handleLogOut}
+          className="c-button c-button--primary c-button--small"
+        >
+          Sign Out
+        </button>
+      </div>
     </div>
   );
 }

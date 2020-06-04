@@ -6,7 +6,7 @@ import Container from "./Container";
 function NotFound() {
   return (
     <Page title="Not Found" scope="404">
-      <section className="o-section o-section--404 u-align-center u-no-pt">
+      <section className="o-section o-section--404 u-align-center">
         <Container>
           <div className="c-404  u-flow">
             <img

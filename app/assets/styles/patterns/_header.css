@@ -1,10 +1,14 @@
 .p-header {
-  border-bottom: solid 1px hsl(var(--color-primary-h), 15%, 95%);
+  position: relative;
+  z-index: 2;
+  border-bottom: solid 1px hsl(var(--color-primary-h), 20%, 79%);
+  box-shadow: 0 2px 4px hsla(var(--color-primary-h), 15%, 75%, 0.4);
   padding: 1.75rem 0;
 
   &__inner,
   &__loggedin,
-  &__loggedout {
+  &__loggedout,
+  &__nav-btns {
     display: flex;
   }
 
@@ -15,6 +19,18 @@
 
   &__loggedin {
     align-items: center;
+
+    > * + * {
+      margin-left: 1.85rem;
+    }
+  }
+
+  &__nav-btns {
+    margin-left: 2.75rem;
+
+    > * + * {
+      margin-left: 1rem;
+    }
   }
 
   &__logo {

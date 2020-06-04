@@ -1,6 +1,7 @@
 .c-404 {
   &__illustration {
-    max-width: 400px;
+    margin-top: rem(-50px);
+    max-width: rem(400px);
   }
 
   &__title {

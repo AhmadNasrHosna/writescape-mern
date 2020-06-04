@@ -1,3 +1,7 @@
+:root {
+  --color-h: var(--color-primary-h);
+}
+
 .o-form {
   &__group {
     margin-bottom: 2rem;
@@ -7,7 +11,7 @@
   input:not([type="submit"]),
   textarea {
     padding: 1.2rem 1rem;
-    color: hsl(var(--color-primary-h), 15%, 25%);
+    color: hsl(var(--color-h), 15%, 25%);
     border: 1px solid currentColor;
     font-size: rem(17px);
     transition: all 250ms ease;
@@ -16,57 +20,68 @@
     background: #fff;
 
     &::-moz-placeholder {
-      color: hsl(var(--color-primary-h), 5%, 63%);
+      color: hsl(var(--color-h), 5%, 63%);
     }
 
     &::-webkit-input-placeholder {
-      color: hsl(var(--color-primary-h), 5%, 63%);
+      color: hsl(var(--color-h), 5%, 63%);
     }
 
     &::-ms-input-placeholder {
-      color: hsl(var(--color-primary-h), 5%, 63%);
+      color: hsl(var(--color-h), 5%, 63%);
     }
 
     &::placeholder {
-      color: hsl(var(--color-primary-h), 5%, 63%);
+      color: hsl(var(--color-h), 5%, 63%);
       transition: all 550ms ease;
     }
 
     &:focus {
-      background-color: var(--color-text-800) !important;
+      background-color: hsl(var(--color-h), 16%, 20%) !important;
       color: #fff;
-      border-color: var(--color-text-800);
+      border-color: hsl(var(--color-h), 16%, 20%);
     }
 
     &:hover,
     &:focus {
-      box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 12%, 88%, 1);
+      box-shadow: 0 0 0 3px hsla(var(--color-h), 12%, 88%, 1);
     }
 
     &:hover {
-      background-color: hsla(var(--color-primary-h), 12%, 88%, 1);
+      background-color: hsla(var(--color-h), 12%, 88%, 1);
 
       &::-moz-placeholder {
-        color: hsl(var(--color-primary-h), 13%, 58%);
+        color: hsl(var(--color-h), 13%, 58%);
       }
 
       &::-webkit-input-placeholder {
-        color: hsl(var(--color-primary-h), 13%, 58%);
+        color: hsl(var(--color-h), 13%, 58%);
       }
 
       &::-ms-input-placeholder {
-        color: hsl(var(--color-primary-h), 13%, 58%);
+        color: hsl(var(--color-h), 13%, 58%);
       }
 
       &::placeholder {
-        color: hsl(var(--color-primary-h), 13%, 58%);
+        color: hsl(var(--color-h), 13%, 58%);
         transition: all 550ms ease;
       }
     }
   }
 
+  &__title {
+    padding-block: 1.5rem !important;
+    font-size: rem(20px) !important;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+  }
+
   label {
-    color: hsl(var(--color-primary-h), 15%, 35%);
+    color: hsl(var(--color-h), 15%, 35%);
     font-weight: 500;
+  }
+
+  &--accent {
+    --color-h: 206;
   }
 }

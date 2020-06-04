@@ -28,3 +28,11 @@
 .u-ls-n04 {
   letter-spacing: -.04em;
 }
+
+/**
+ * Colors
+ */
+
+ .u-color-text-900 {
+   color: var(--color-text-900)
+ }

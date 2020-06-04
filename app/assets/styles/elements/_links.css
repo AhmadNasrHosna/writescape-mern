@@ -6,7 +6,7 @@ a {
   text-decoration: none;
   color: var(--color-link);
 
-  .o-main & {
+  .o-main &:not([class]) {
     background: linear-gradient(
       to bottom,
       hsla(0, 0%, 100%, 0) 70%,

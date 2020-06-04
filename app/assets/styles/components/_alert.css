@@ -1,0 +1,77 @@
+.c-floating-alerts {
+  .c-alert {
+    position: absolute;
+    z-index: 999;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em 2em;
+    background: var(--color-text-800);
+    border-radius: 3px;
+    color: #fff;
+    box-shadow: 0 10px 10px hsla(var(color-primary-h), 35%, 20%, 0.1);
+    -moz-animation: o-floating-alert ease-in 5s forwards;
+    -webkit-animation: o-floating-alert ease-in 5s forwards;
+    -o-animation: o-floating-alert ease-in 5s forwards;
+    animation: o-floating-alert ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    display: none;
+
+    &:last-of-type {
+      display: block;
+    }
+  }
+}
+
+@keyframes o-floating-alert {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  9% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+  }
+
+  91% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+@-webkit-keyframes o-floating-alert {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  9% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+  }
+
+  91% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(1.2);
+  }
+}

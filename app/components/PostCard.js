@@ -8,17 +8,23 @@ function PostCard({ post, onClick, isAuthorHidden }) {
           ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
         `;
   return (
-    <Link
-      to={`/post/${_id}`}
-      onClick={onClick}
-      className="list-group-item list-group-item-action"
-    >
-      <img className="avatar-tiny" src={author.avatar} />
-      <strong>{title}</strong>{" "}
-      {!isAuthorHidden && (
-        <span className="text-muted small">by {author.username}</span>
-      )}{" "}
-      <span className="text-muted small">on {dateFormatted}</span>
+    <Link to={`/post/${_id}`} onClick={onClick}>
+      <div className="c-post-card">
+        <h2 className="c-post-card__title">{title}</h2>{" "}
+        <span className={`c-post-card__date ${!isAuthorHidden && "u-mb-3"}`}>
+          on {dateFormatted}
+        </span>
+        <div className="c-post-card__author">
+          {!isAuthorHidden && (
+            <>
+              <div className="c-avatar c-avatar--blue">
+                <span>{author.username.slice(0, 1).toUpperCase()} </span>
+              </div>
+              <span className="c-post-card__username">{author.username}</span>
+            </>
+          )}{" "}
+        </div>
+      </div>
     </Link>
   );
 }

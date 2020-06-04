@@ -1,6 +1,6 @@
 // #FORMS
 
-input:not([type="submit"]) {
+input:not([type="submit"]), textarea {
   line-height: 1;
   width: 100%;
   max-width: 100%;

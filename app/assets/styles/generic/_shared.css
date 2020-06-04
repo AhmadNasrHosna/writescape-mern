@@ -487,77 +487,6 @@ textarea.tall-textarea {
   font-size: 0.75rem;
 }
 
-.floating-alert {
-  display: none;
-  position: absolute;
-  z-index: 999;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-  -moz-animation: floatingAlert ease-in 5s forwards;
-  -webkit-animation: floatingAlert ease-in 5s forwards;
-  -o-animation: floatingAlert ease-in 5s forwards;
-  animation: floatingAlert ease-in 5s forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.floating-alerts .floating-alert:last-of-type {
-  display: block;
-}
-
-@keyframes floatingAlert {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) scale(1.2);
-  }
-
-  9% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-  }
-
-  91% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) scale(1.2);
-  }
-}
-
-@-webkit-keyframes floatingAlert {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) scale(1.2);
-  }
-
-  9% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-  }
-
-  91% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) scale(1.2);
-  }
-}
-
 .small-header-avatar {
   width: 32px;
   height: 32px;
@@ -587,7 +516,7 @@ textarea.tall-textarea {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #c4c4c4;
+  background-color: hsla(var(--color-primary-h), 15%, 77%, 1);
   opacity: 0;
 }
 
