@@ -5,10 +5,10 @@ function Page({ title, scope, children }) {
     document.title = `${title ? title + " | Writescape" : "Writescape"} `;
     window.scrollTo(0, 0);
 
-    // remove all existed scope classes start with namespace: "s-"
+    // remove all existed scope classes that start with namespace: "s-"
     const filteredClassList = Array.from(document.body.classList)
       .map((classItem) => {
-        // if the class starts with "s-" don't return
+        // if the class starts with "s-" don't include
         if (classItem.startsWith("s-")) return;
         // Otherwise, return the remain classes
         return classItem;

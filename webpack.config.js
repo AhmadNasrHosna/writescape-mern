@@ -27,20 +27,21 @@ const postCSSPlugins = [
   }),
 ];
 
-// class RunAfterCompile {
-//   apply(compiler) {
-//     compiler.hooks.done.tap("Copy files", function () {
-//       fse.copySync("./app/styles.css", "./dist/main.css");
+class RunAfterCompile {
+  apply(compiler) {
+    compiler.hooks.done.tap("Copy files", function () {
+      fse.copySync("./app/assets/images", "./dist/assets/images");
+      fse.copySync("./app/assets/fonts", "./dist/assets/fonts");
 
-//       /*
-//         If you needed to copy another file or folder
-//         such as your "images" folder, you could just
-//         call fse.copySync() as many times as you need
-//         to here to cover all of your files/folders.
-//       */
-//     });
-//   }
-// }
+      /*
+        If you needed to copy another file or folder
+        such as your "images" folder, you could just
+        call fse.copySync() as many times as you need
+        to here to cover all of your files/folders.
+      */
+    });
+  }
+}
 
 let cssConfig = {
   test: /\.css$/i,
@@ -127,8 +128,8 @@ if (currentTask == "webpackBuild") {
     new CleanWebpackPlugin(),
     new MiniCSSExtractPlugin({
       filename: "assets/styles/main.[chunkhash].css",
-    })
-    // new RunAfterCompile()
+    }),
+    new RunAfterCompile()
   );
   config.mode = "production";
   config.output = {
