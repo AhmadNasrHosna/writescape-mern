@@ -9,3 +9,5 @@
 .u-mb-3 { margin-bottom: rem(30px); }
 
 .u-pv-2 { padding-block: rem(17.5px); }
+
+.u-mv-auto { margin-inline: auto; }

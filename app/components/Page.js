@@ -14,7 +14,7 @@ function Page({ title, scope, children }) {
         return classItem;
       })
       .join(" ");
-    console.log(filteredClassList);
+
     // Reassign the class list of the body element with the filtered one
     document.body.classList = filteredClassList;
 

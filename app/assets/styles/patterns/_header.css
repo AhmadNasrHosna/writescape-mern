@@ -9,7 +9,9 @@
   &__loggedin,
   &__loggedout,
   &__nav-btns {
-    display: flex;
+    @mixin bp sm {
+      display: flex;
+    }
   }
 
   &__inner {
@@ -35,9 +37,20 @@
 
   &__logo {
     font-weight: normal;
-    font-size: rem(16px);
+    font-size: rem(17.5px);
     font-family: var(--font-family-display);
     text-transform: lowercase;
+
+    @mixin bp xs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      @mixin center-x;
+    }
+
+    @mixin bp sm {
+      font-size: rem(16px);
+    }
 
     a {
       color: hsl(var(--color-primary-h), 100%, 42%);
@@ -54,8 +67,20 @@
   }
 
   &__nav {
-    li + li {
-      margin-left: rem(10px);
+    ul {
+      @mixin bp xs {
+        width: 100%;
+      }
+
+      li {
+        @mixin bp xs {
+          width: calc(100% - rem(5px));
+        }
+
+        + li {
+          margin-left: rem(10px);
+        }
+      }
     }
   }
 }

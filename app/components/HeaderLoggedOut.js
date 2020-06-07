@@ -7,14 +7,14 @@ function HeaderLoggedOut() {
       <ul className="o-list o-list--inline">
         <li>
           <NavLink exact to="/login">
-            <button className="c-button c-button--inverse c-button--medium">
+            <button className="c-button c-button--inverse c-button--medium c-button--100%">
               Login
             </button>
           </NavLink>
         </li>
         <li>
           <NavLink to="/register">
-            <button className="c-button c-button--primary c-button--medium">
+            <button className="c-button c-button--primary c-button--medium c-button--100%">
               Sign up
             </button>
           </NavLink>

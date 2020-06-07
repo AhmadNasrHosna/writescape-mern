@@ -2,16 +2,21 @@
   margin-top: -2rem;
 
   &__illustration {
-    width: rem(400px);
+    width: rem(200px);
+    @mixin bp md {
+      width: rem(400px);
+    }
     display: block;
     margin: 0 auto;
   }
 
   &__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-gap: rem(30px);
     margin-top: rem(90px);
+    @mixin bp md {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__emptyfeedmessage {

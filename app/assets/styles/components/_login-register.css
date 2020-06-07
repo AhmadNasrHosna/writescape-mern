@@ -1,11 +1,15 @@
 .c-login,
 .c-register {
-  display: flex;
-  align-items: flex-start;
+  @mixin bp md {
+    display: flex;
+    align-items: flex-start;
+  }
 
   &__form {
-    flex-basis: 40%;
-    max-width: 40%;
+    @mixin bp md {
+      flex-basis: 40%;
+      max-width: 40%;
+    }
 
     /* form {
       background: #fff;
@@ -16,8 +20,13 @@
   }
 
   &__illustration {
-    flex-basis: 60%;
-    max-width: 60%;
-    margin-top: -11rem;
+    display: none;
+
+    @mixin bp md {
+      display: block;
+      flex-basis: 60%;
+      max-width: 60%;
+      margin-top: -11rem;
+    }
   }
 }

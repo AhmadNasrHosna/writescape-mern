@@ -20,25 +20,38 @@
   }
 
   &--red {
-    box-shadow: 0 3px 11px 0 hsla(var(--color-primary-h), 15%, 20%, 0.2),
-      0 0 0 5px hsl(var(--color-primary-h), 10%, 93%),
-      0 0 0 9px hsl(var(--color-primary-h), 10%, 98%);
-    background-color: hsla(var(--color-primary-h), 6%, 85%, 1);
+    box-shadow: 0 3px 11px 0 hsla(var(--color-primary-h), 20%, 20%, 0.35),
+      0 0 0 5px hsl(var(--color-primary-h), 20%, 92%),
+      0 0 0 9px hsl(var(--color-primary-h), 20%, 97%);
+    background-color: hsl(var(--color-primary-h), 6%, 80%);
 
     .c-avatar__firstletter {
       border-radius: 50%;
-      background: hsl(7, 55%, 42%);
+      background: hsl(var(--color-primary-h), 55%, 42%);
     }
   }
 
   &--blue {
     box-shadow: 0 3px 11px 0 hsla(206, 15%, 20%, 0.2),
-      0 0 0 5px hsl(206, 10%, 93%), 0 0 0 9px hsl(206, 10%, 98%);
-    background-color: hsla(206, 6%, 85%, 1);
+      0 0 0 5px hsl(206, 10%, 93%), 0 0 0 9px hsl(206, 10%, 97%);
+    background-color: hsla(206, 8%, 76%, 1);
 
     .c-avatar__firstletter {
       border-radius: 50%;
       background: hsl(206, 78%, 33%);
+    }
+  }
+
+  &--dark {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 3px 11px 0 hsla(var(--color-primary-h), 30%, 20%, 0.6),
+      0 0 0 6px hsl(var(--color-primary-h), 30%, 78%),
+      0 0 0 11px hsl(var(--color-primary-h), 30%, 82.5%);
+    background-color: hsla(var(--color-primary-h), 17%, 59%, 1);
+
+    .c-avatar__firstletter {
+      background: hsl(var(--color-primary-h), 55%, 42%);
     }
   }
 

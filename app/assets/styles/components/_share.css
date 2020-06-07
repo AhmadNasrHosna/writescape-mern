@@ -1,0 +1,65 @@
+.c-share {
+  position: absolute;
+  top: 0;
+  left: rem(-84px);
+  height: 100%;
+  width: rem(40px);
+  display: none;
+
+  @mixin bp lg {
+    display: block;
+    left: rem(-96px);
+  }
+
+  &__inner {
+    position: sticky;
+    top: rem(30px);
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: hsla(var(--color-primary-h), 35%, 94%, 1);
+    position: absolute;
+    left: 50%;
+  }
+
+  span {
+    transform: translateX(7px);
+    writing-mode: vertical-lr;
+    width: 100%;
+    background: #fff;
+    padding: 0.5em 0;
+    color: var(--color-primary);
+  }
+
+  &__icons {
+    margin-top: 1rem;
+
+    a {
+      display: block;
+      position: relative;
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 1.5rem;
+      background: #fff !important;
+      transition: all 200ms ease;
+
+      img {
+        border-radius: 50%;
+        border: 1px solid  hsl(var(--color-primary-h), 35%, 94%);
+        transition: all 200ms ease;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+
+        img {
+          border-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}

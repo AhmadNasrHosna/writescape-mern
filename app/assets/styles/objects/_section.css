@@ -2,7 +2,14 @@
   padding: calc(var(--gap) * 4) 0;
 
   &__title {
-    font-size: rem(60px);
+    font-size: rem(47px);
+    text-align: center;
+
+    @mixin bp md {
+      font-size: rem(60px);
+      text-align: start;
+    }
+
     font-family: var(--font-family-display);
     letter-spacing: -0.06em;
 
@@ -24,9 +31,13 @@
   &--feed,
   &--createpost,
   &--editpost {
-    background-size: 47%;
+    background-size: 100%;
     position: relative;
     z-index: 1;
+
+    @mixin bp sm {
+      background-size: 47%;
+    }
 
     &:before {
       content: "";
@@ -37,6 +48,16 @@
       left: 0;
       background: linear-gradient(to bottom, white, transparent);
       z-index: -1;
+    }
+  }
+
+  &--feed {
+    &:before {
+      background: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 100%, 0.75),
+        transparent
+      );
     }
   }
 
@@ -53,7 +74,9 @@
   }
 
   &--login {
-    height: 100vh;
+    @mixin bp sm {
+      height: 100vh;
+    }
 
     .o-section__title {
       font-size: rem(70px);

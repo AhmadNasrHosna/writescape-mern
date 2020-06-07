@@ -18,7 +18,13 @@ function PostCard({ post, onClick, isAuthorHidden }) {
           {!isAuthorHidden && (
             <>
               <div className="c-avatar c-avatar--blue">
-                <span>{author.username.slice(0, 1).toUpperCase()} </span>
+                <span className="c-avatar__firstletter">
+                  {author.username.slice(0, 1).toUpperCase()}{" "}
+                </span>
+                <img
+                  src={author.avatar}
+                  alt={`Profile picture of ${author.username}`}
+                />
               </div>
               <span className="c-post-card__username">{author.username}</span>
             </>

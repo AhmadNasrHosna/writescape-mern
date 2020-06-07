@@ -9,6 +9,7 @@ import Page from "./Page";
 import Container from "./Container";
 import LoadingIcon from "./LoadingIcon";
 import NotFound from "./NotFound";
+import FloatingShareIcons from "./FloatingShareIcons";
 import ReactMarkDown from "react-markdown";
 import ReactTooltip from "react-tooltip";
 
@@ -99,10 +100,14 @@ function SinglePost() {
     );
   }
 
-  const date = new Date(post.createdDate);
-  const dateFormatted = `
-    ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}
-  `;
+  const date = new Date(post.createdDate).toDateString().split(" ");
+  const { dayName, day, month, year } = {
+    dayName: date[0],
+    day: date[2],
+    month: date[1],
+    year: date[3],
+  };
+  const dateFormatted = `${dayName}, ${month} ${day}, ${year}`;
 
   function isVisitorOwner() {
     if (!appState.loggedIn) return;
@@ -111,48 +116,57 @@ function SinglePost() {
 
   return (
     <Page title={post.title}>
-      <Container>
-        <div className="d-flex justify-content-between">
-          <h2>{post.title}</h2>
-          {isVisitorOwner() && (
-            <span className="pt-2">
-              <Link
-                to={`/post/${id}/edit`}
-                data-tip="Edit"
-                data-for="edit"
-                className="text-primary mr-2"
-              >
-                <i className="fas fa-edit"></i>
-              </Link>{" "}
-              <ReactTooltip id="edit" className="custom-tooltip" />
-              <a
-                onClick={deleteHandler}
-                data-tip="Delete"
-                data-for="delete"
-                className="delete-post-button text-danger"
-              >
-                <i className="fas fa-trash"></i>
-              </a>
-              <ReactTooltip id="delete" className="custom-tooltip" />
-            </span>
-          )}
-        </div>
-
-        <p className="text-muted small mb-4">
-          <Link to={`/profile/${post.author.username}`}>
-            <img className="avatar-tiny" src={post.author.avatar} />
-          </Link>
-          Posted by{" "}
-          <Link to={`/profile/${post.author.username}`}>
-            {post.author.username}
-          </Link>{" "}
-          on {dateFormatted}
-        </p>
-
-        <div className="body-content">
-          <ReactMarkDown source={post.body} />
-        </div>
-      </Container>
+      <article className="c-article">
+        <header className="c-article__header">
+          <Container wide={true}>
+            <h2 className="c-article__title">{post.title}</h2>
+            {isVisitorOwner() && (
+              <div className="c-article__actions">
+                <Link to={`/post/${id}/edit`} data-tip="Edit" data-for="edit">
+                  <i className="fas fa-edit"></i>
+                </Link>{" "}
+                <ReactTooltip id="edit" className="custom-tooltip" />
+                <a
+                  onClick={deleteHandler}
+                  href="#delete"
+                  data-tip="Delete"
+                  data-for="delete"
+                >
+                  <i className="fas fa-trash"></i>
+                </a>
+                <ReactTooltip id="delete" className="custom-tooltip" />
+              </div>
+            )}
+            <div className="c-article__meta u-mv-auto">
+              <Link to={`/profile/${post.author.username}`}>
+                <div className="c-article__author">
+                  <div className="c-avatar c-avatar--dark u-inline-block">
+                    <span className="c-avatar__firstletter">
+                      {post.author.username.slice(0, 1).toUpperCase()}{" "}
+                    </span>
+                    <img
+                      src={post.author.avatar}
+                      alt={`Profile picture of ${post.author.username}`}
+                    />
+                  </div>
+                  <span>{post.author.username}</span>
+                </div>
+              </Link>
+              <div className="c-article__date">
+                <time>{dateFormatted}</time>
+              </div>
+            </div>
+          </Container>
+        </header>
+        <section className="o-section">
+          <Container>
+            <div className="c-article__body u-flow">
+              <FloatingShareIcons />
+              <ReactMarkDown source={post.body} />
+            </div>
+          </Container>
+        </section>
+      </article>
     </Page>
   );
 }

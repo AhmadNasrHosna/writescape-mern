@@ -36,7 +36,7 @@ function HomeGuest() {
       </section>
       <section className="o-section o-section--login u-align-center">
         <div className="o-container u-flow u-flow--5">
-          <h2 className="o-section__title">Join Us</h2>
+          <h2 className="o-section__title u-align-center">Join Us</h2>
           <div className="c-login-panel">
             <Tabs>
               <div label="Login">

@@ -1,5 +1,7 @@
 .c-login-panel {
-  width: 50%;
+  @mixin bp md {
+    width: 50%;
+  }
   text-align: left;
   margin-right: auto;
   margin-left: auto;
@@ -8,8 +10,14 @@
   &__or {
     position: absolute;
     background: hsl(var(--color-primary-h), 100%, 92%);
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    font-size: rem(14px);
+    @mixin bp sm {
+      width: 44px;
+      height: 44px;
+      font-size: rem(16px);
+    }
     border-radius: 50%;
     left: 50%;
     top: calc(50% + -4px);
@@ -21,7 +29,6 @@
     -webkit-user-drag: none;
     z-index: 3;
     box-shadow: 2px 0 10px hsla(var(--color-primary-h), 7%, 34%, 0.1);
-    font-size: rem(16px);
   }
 
   &__header {
@@ -39,13 +46,17 @@
       font-weight: bold;
       letter-spacing: -0.05em;
       font-family: var(--font-family-display);
-      font-size: rem(27.5px);
-      padding: 0.9em 1.75em calc(0.7em + 8px);
       box-shadow: 0 13px 20px hsla(var(--color-primary-h), 35%, 20%, 0.12);
       border-top: var(--border);
       position: relative;
       user-select: none;
       -webkit-user-drag: none;
+      padding: 1.3em 1.75em calc(1.1em + 8px);
+      font-size: rem(20px);
+      @mixin bp sm {
+        padding: 0.9em 1.75em calc(0.7em + 8px);
+        font-size: rem(27.5px);
+      }
 
       &::after {
         content: "";

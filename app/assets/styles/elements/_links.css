@@ -5,20 +5,4 @@
 a {
   text-decoration: none;
   color: var(--color-link);
-
-  .o-main &:not([class]) {
-    background: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 100%, 0) 70%,
-      hsla(var(--color-primary-h), 35%, 92%, 1) 70%
-    );
-
-    &:hover {
-      background: linear-gradient(
-        to bottom,
-        hsla(0, 0%, 100%, 0) 0%,
-        hsla(var(--color-primary-h), 35%, 92%, 1) 0%
-      );
-    }
-  }
 }

@@ -2,37 +2,46 @@
  * Alignments.
  */
 
-.u-align-end     { text-align:      end }
+.u-align-end {
+  text-align: end !important;
+}
 
-.u-align-start   { text-align: start    }
+.u-align-start {
+  text-align: start !important;
+}
 
-.u-align-center  { text-align:  center  }
+.u-align-center {
+  text-align: center !important;
+}
 
-.u-align-justify { text-align: justify  }
+.u-align-justify {
+  text-align: justify !important;
+}
 
 /**
  * Weights.
  */
 
-.u-fw-600 { font-weight: 600 }
+.u-fw-600 {
+  font-weight: 600;
+}
 
 /**
  * Letter Spacing.
  */
 
-
 .u-ls-p02 {
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .u-ls-n04 {
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
 }
 
 /**
  * Colors
  */
 
- .u-color-text-900 {
-   color: var(--color-text-900)
- }
+.u-color-text-900 {
+  color: var(--color-text-900);
+}

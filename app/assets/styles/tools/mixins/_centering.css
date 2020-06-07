@@ -4,8 +4,14 @@
   justify-content: center;
 }
 
+@define-mixin center-x {
+  display: flex;
+  justify-content: center;
+}
+
 @define-mixin center-cy {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+

@@ -109,6 +109,8 @@
 @import "components/_post-card";
 @import "components/_feed";
 @import "components/_avatar";
+@import "components/_article";
+@import "components/_share";
 
 /**
  * Patterns. (namespace: p-)
@@ -141,3 +143,4 @@
 @import "utilities/_spacings";
 @import "utilities/_typography";
 @import "utilities/_flow";
+@import "utilities/_display";
