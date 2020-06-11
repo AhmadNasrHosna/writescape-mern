@@ -25,26 +25,22 @@ function HeaderLoggedIn() {
 
   return (
     <div className="p-header__loggedin">
-      <a
+      <button
         onClick={openSearchHandler}
-        href="#0"
-        className="header-search-icon"
+        className="p-header__search"
         data-tip="Search"
         data-for="search"
-      >
-        <i className="fas fa-search"></i>
-      </a>{" "}
+      ></button>
       <ReactTooltip place="bottom" id="search" className="custom-tooltip" />
-      <span
+      <button
         className={
-          "mr-2 header-chat-icon " +
-          (appState.unreadChatCount ? "text-danger" : "text-white")
+          "p-header__chat " +
+          (appState.unreadChatCount ? "p-header__chat--unread" : "")
         }
         data-tip="Chat"
         data-for="chat"
         onClick={() => appDispatch({ type: "toggleChat" })}
       >
-        <i className="fas fa-comment"></i>
         {appState.unreadChatCount ? (
           <span className="chat-count-badge text-white">
             {appState.unreadChatCount < 9 ? appState.unreadChatCount : "9+"}
@@ -52,7 +48,7 @@ function HeaderLoggedIn() {
         ) : (
           ""
         )}
-      </span>{" "}
+      </button>
       <ReactTooltip place="bottom" id="chat" className="custom-tooltip" />
       <Link
         to={`/profile/${appState.user.username}`}

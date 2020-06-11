@@ -29,7 +29,7 @@ function Login() {
       } else {
         appDispatch({
           type: "flashMessage",
-          value: "Invalid user or password.",
+          value: "Invalid username or password.",
         });
       }
     } catch (e) {
