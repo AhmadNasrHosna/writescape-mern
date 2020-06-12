@@ -32,10 +32,19 @@
       border-radius: 50%;
       border: 1px dashed var(--color-text-900);
       color: var(--color-text-900);
-      box-shadow: 0 3px 3px hsla(var(--color-primary-h), 16%, 20%, 0.15);
+      box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 50%, 87%, 1),
+        0 3px 3px hsla(var(--color-primary-h), 16%, 20%, 0.15);
 
       &:last-of-type {
         margin-left: 0.6rem;
+      }
+
+      &:hover {
+        transform: scale(.95);
+      }
+
+      &:active {
+        transform: scale(.95) translateY(1px);
       }
     }
   }
@@ -55,7 +64,7 @@
     position: relative;
     z-index: 1;
     padding: rem(100px) 0;
-    box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, .1);
+    box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, 0.1);
 
     @mixin bp sm {
       background-size: 47%;

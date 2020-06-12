@@ -101,13 +101,17 @@
     width: rem(40px);
     height: rem(40px);
     border-radius: 50%;
-    transition: all 200ms ease;
+    transition: background 200ms ease;
     background-repeat: no-repeat;
     background-position: center;
 
     &:hover,
     &:focus {
       background-color: hsla(var(--color-primary-h), 18%, 93%, 1);
+    }
+
+    &:active {
+      transform: translateY(1px);
     }
   }
 }
