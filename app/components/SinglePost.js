@@ -161,7 +161,7 @@ function SinglePost() {
         <section className="o-section">
           <Container>
             <div className="c-article__body u-flow">
-              <FloatingShareIcons />
+              <FloatingShareIcons title={post.title} />
               <ReactMarkDown source={post.body} />
             </div>
           </Container>
