@@ -1,6 +1,7 @@
 .c-button {
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   padding: 0.5em 1.75em;
   margin: 0;
   text-decoration: none;
@@ -24,7 +25,7 @@
 }
 
 .c-button:active {
-  transform: scale(0.99);
+  transform: translateY(1px);
 }
 
 .c-button--inverse {
@@ -79,11 +80,22 @@
   width: 100%;
 }
 
-.c-button--disabled, button:disabled  {
+.c-button--disabled,
+button:disabled {
   cursor: default;
-  opacity: .5;
+  opacity: 0.5;
 
-  &:hover, &:focus {
-    box-shadow: none
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.c-button--icon {
+  svg {
+    width: rem(28px);
+    height: rem(28px);
+    margin-right: rem(6px);
+    fill: currentColor;
   }
 }

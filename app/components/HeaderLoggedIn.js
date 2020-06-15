@@ -57,7 +57,7 @@ function HeaderLoggedIn() {
       >
         <div className="c-avatar c-avatar--red">
           <span className="c-avatar__firstletter">
-            {appState.user.username.slice(0, 1).toUpperCase()}{" "}
+            {appState.user.username.slice(0, 1).toUpperCase()}
           </span>
           <img
             src={appState.user.avatar}

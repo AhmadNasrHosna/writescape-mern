@@ -55,6 +55,19 @@
     }
   }
 
+  &--profile {
+    width: 120px;
+    height: 120px;
+    background-color: hsl(var(--color-primary-h), 9%, 67%);
+    box-shadow: 0 8px 12px 0 hsla(var(--color-primary-h), 20%, 20%, 0.35),
+      0 0 0 11px hsl(var(--color-primary-h), 20%, 87%),
+      0 0 0 24px hsl(var(--color-primary-h), 20%, 93%);
+
+    .c-avatar__firstletter {
+      font-size: rem(66px);
+    }
+  }
+
   img {
     position: absolute;
     left: 0;

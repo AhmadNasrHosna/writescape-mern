@@ -1,0 +1,40 @@
+.__react_component_tooltip {
+  background: hsl(var(--color-primary-h), 16%, 20%) !important;
+  padding: 5px 10px !important;
+
+  &.place-top {
+    &:after {
+      border-top-color: hsl(var(--color-primary-h), 16%, 20%) !important;
+      border-top-style: solid !important;
+      border-top-width: 6px !important;
+    }
+  }
+
+  &.place-bottom {
+    &:after {
+      border-bottom-color: hsl(var(--color-primary-h), 16%, 20%) !important;
+      border-bottom-style: solid !important;
+      border-bottom-width: 6px !important;
+    }
+  }
+
+  [data-tip="Delete"] + & {
+    background: var(--color-link) !important;
+
+    &.place-top {
+      &:after {
+        border-top-color: var(--color-link) !important;
+        border-top-style: solid !important;
+        border-top-width: 6px !important;
+      }
+    }
+
+    &.place-bottom {
+      &:after {
+        border-bottom-color: var(--color-link) !important;
+        border-bottom-style: solid !important;
+        border-bottom-width: 6px !important;
+      }
+    }
+  }
+}

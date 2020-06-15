@@ -28,7 +28,7 @@ function Profile() {
     stopFollowingRequestCount: 0,
     profileData: {
       profileUsername: "...",
-      profileAvatar: "https://gravatar.com/avatar/placeholder?s=128",
+      profileAvatar: "https://www.gravatar.com/avatar/0000?d=blank",
       isFollowing: false,
       counts: {
         postCount: "",
@@ -155,47 +155,125 @@ function Profile() {
   }
 
   return (
-    <Page title={username + " profile"}>
-      <Container>
-        <h2>
-          <img className="avatar-small" src={state.profileData.profileAvatar} />{" "}
-          {state.profileData.profileUsername}
-          {isVisitorNotOwner() &&
-            !state.profileData.isFollowing &&
-            state.profileData.profileUsername != "..." && (
-              <button
-                onClick={startFollowing}
-                disabled={state.followActionLoading}
-                className="btn btn-primary btn-sm ml-2"
-              >
-                Follow <i className="fas fa-user-plus"></i>
-              </button>
-            )}
-          {isVisitorNotOwner() &&
-            state.profileData.isFollowing &&
-            state.profileData.profileUsername != "..." && (
-              <button
-                onClick={stopFollowing}
-                disabled={state.followActionLoading}
-                className="btn btn-danger btn-sm ml-2"
-              >
-                Stop Following <i className="fas fa-user-times"></i>
-              </button>
-            )}
-        </h2>
+    <Page title={state.profileData.profileUsername + " profile"}>
+      <div className="c-profile">
+        <header className="c-profile__header">
+          <Container wide="medium">
+            {" "}
+            <div className="c-profile__user">
+              <div className="c-avatar c-avatar--red c-avatar--profile">
+                <span className="c-avatar__firstletter">
+                  {state.profileData.profileUsername.slice(0, 1).toUpperCase()}
+                </span>
+                <img
+                  src={state.profileData.profileAvatar}
+                  alt={`Profile picture of ${state.profileData.profileUsername}`}
+                ></img>
+              </div>
 
-        <div className="profile-nav nav nav-tabs pt-2 mb-4">
-          <NavLink exact to={`${match.url}`} className="nav-item nav-link">
-            Posts: {state.profileData.counts.postCount}
-          </NavLink>
-          <NavLink to={`${match.url}/followers`} className="nav-item nav-link">
-            Followers: {state.profileData.counts.followerCount}
-          </NavLink>
-          <NavLink to={`${match.url}/following`} className="nav-item nav-link">
-            Following: {state.profileData.counts.followingCount}
-          </NavLink>
-        </div>
+              <h2 className="c-profile__username">
+                {state.profileData.profileUsername}
+              </h2>
 
+              <div className="c-profile__actions">
+                {isVisitorNotOwner() &&
+                  !state.profileData.isFollowing &&
+                  state.profileData.profileUsername != "..." && (
+                    <button
+                      onClick={startFollowing}
+                      disabled={state.followActionLoading}
+                      className="c-button c-button--inverse c-button--medium c-button--icon c-button--shadow"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="28"
+                        x="0"
+                        y="0"
+                        viewBox="27 25 48 48"
+                      >
+                        <path
+                          fillRule="nonzero"
+                          d="M55.385 67.5H31.993a2.001 2.001 0 01-1.993-2c0-8.737 6.512-13 17-13 5.078 0 9.224 1 12.15 3.022a7.986 7.986 0 00-1.998 1.114C54.644 55.206 51.218 54.5 47 54.5c-9.517 0-15 3.59-15 11 0-.002 13.508-.001 22.398 0 .236.716.57 1.389.987 2zM47 51.5c-5.199 0-9-5.869-9-12 0-5.918 3.73-11 9-11s9 5.082 9 11c0 6.131-3.801 12-9 12zm0-2c3.866 0 7-4.838 7-10 0-4.924-2.991-9-7-9s-7 4.076-7 9c0 5.162 3.134 10 7 10zM62 72a9 9 0 110-18 9 9 0 010 18zm0-2a7 7 0 100-14 7 7 0 000 14zm3-8a1 1 0 010 2h-1.75a.25.25 0 00-.25.25V66a1 1 0 01-2 0v-1.75a.25.25 0 00-.25-.25H59a1 1 0 010-2h1.75a.25.25 0 00.25-.25V60a1 1 0 012 0v1.75c0 .138.112.25.25.25H65z"
+                        ></path>
+                      </svg>
+                      Follow
+                    </button>
+                  )}
+                {isVisitorNotOwner() &&
+                  state.profileData.isFollowing &&
+                  state.profileData.profileUsername != "..." && (
+                    <button
+                      onClick={stopFollowing}
+                      onMouseEnter={() => console.log("move")}
+                      onMouseLeave={() => console.log("leave")}
+                      disabled={state.followActionLoading}
+                      className="c-button c-button--primary c-button--medium c-button--icon c-button--shadow"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="28"
+                        x="0"
+                        y="0"
+                        viewBox="27 25 48 48"
+                      >
+                        <path
+                          fillRule="nonzero"
+                          d="M31.993 67.5a2.001 2.001 0 01-1.993-2c0-8.737 6.512-13 17-13 5.078 0 9.224 1 12.15 3.022a7.986 7.986 0 00-1.998 1.114C54.644 55.206 51.218 54.5 47 54.5c-9.517 0-15 3.59-15 11 0-.002 13.508-.001 22.398 0 .236.716.57 1.389.987 2H31.993zM47 51.5c-5.199 0-9-5.869-9-12 0-5.918 3.73-11 9-11s9 5.082 9 11c0 6.131-3.801 12-9 12zm0-2c3.866 0 7-4.838 7-10 0-4.924-2.991-9-7-9s-7 4.076-7 9c0 5.162 3.134 10 7 10zM62 72a9 9 0 110-18 9 9 0 010 18zm0-2a7 7 0 100-14 7 7 0 000 14zm3-8a1 1 0 010 2h-6a1 1 0 010-2h6z"
+                        ></path>
+                      </svg>
+                      Stop Following
+                    </button>
+                  )}
+              </div>
+            </div>
+          </Container>
+          <nav className="c-profile__nav">
+            <Container wide="medium">
+              {" "}
+              <ul className="o-list o-list--inline">
+                <li>
+                  <NavLink
+                    exact
+                    to={`${match.url}`}
+                    className="nav-item nav-link"
+                  >
+                    Posts:{" "}
+                    <span className="c-profile__count">
+                      {state.profileData.counts.postCount}
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={`${match.url}/followers`}
+                    className="nav-item nav-link"
+                  >
+                    Followers:{" "}
+                    <span className="c-profile__count">
+                      {state.profileData.counts.followerCount}
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={`${match.url}/following`}
+                    className="nav-item nav-link"
+                  >
+                    Following:{" "}
+                    <span className="c-profile__count">
+                      {state.profileData.counts.followingCount}
+                    </span>
+                  </NavLink>
+                </li>
+              </ul>
+            </Container>
+          </nav>
+        </header>
+      </div>
+      <Container wide="medium">
+        {" "}
         <Switch>
           <Route exact path={`${match.path}`}>
             <ProfilePosts />

@@ -111,6 +111,8 @@
 @import "components/_avatar";
 @import "components/_article";
 @import "components/_share";
+@import "components/_tooltip";
+@import "components/_profile";
 
 /**
  * Patterns. (namespace: p-)

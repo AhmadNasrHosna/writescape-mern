@@ -123,7 +123,7 @@ function SinglePost() {
             {isVisitorOwner() && (
               <div className="c-article__actions">
                 <Link to={`/post/${id}/edit`} data-tip="Edit" data-for="edit">
-                  <i className="fas fa-edit"></i>
+                  <img src="../assets/images/svg/edit.svg" alt="Edit" />
                 </Link>{" "}
                 <ReactTooltip id="edit" className="custom-tooltip" />
                 <a
@@ -132,7 +132,7 @@ function SinglePost() {
                   data-tip="Delete"
                   data-for="delete"
                 >
-                  <i className="fas fa-trash"></i>
+                  <img src="../assets/images/svg/trash.svg" alt="Delete" />
                 </a>
                 <ReactTooltip id="delete" className="custom-tooltip" />
               </div>

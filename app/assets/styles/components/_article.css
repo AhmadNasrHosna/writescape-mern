@@ -35,16 +35,21 @@
       box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 50%, 87%, 1),
         0 3px 3px hsla(var(--color-primary-h), 16%, 20%, 0.15);
 
+      img {
+        width: 22px;
+        height: 22px;
+      }
+
       &:last-of-type {
         margin-left: 0.6rem;
       }
 
       &:hover {
-        transform: scale(.95);
+        transform: scale(0.95);
       }
 
       &:active {
-        transform: scale(.95) translateY(1px);
+        transform: scale(0.95) translateY(1px);
       }
     }
   }
@@ -93,10 +98,17 @@
     color: hsla(var(--color-primary-h), 14%, 35%, 1);
     position: absolute;
     bottom: 0;
-    left: 0;
-    margin: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 3rem 0;
     background: hsl(var(--color-primary-h), 20%, 87%);
     font-size: 16px;
+
+    @mixin bp sm {
+      margin: 3rem;
+      left: 0;
+      transform: translateX(0);
+    }
   }
 
   &__body {
