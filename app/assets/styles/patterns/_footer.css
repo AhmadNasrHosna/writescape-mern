@@ -31,12 +31,16 @@
   }
 
   &__wrapper {
-    padding: 8rem 4rem;
+    padding: 4rem 1rem;
     text-align: center;
     position: relative;
     padding-bottom: 0;
     overflow: hidden;
     z-index: 1;
+
+    @mixin bp md {
+      padding: 8rem 4rem;
+    }
   }
 
   a {
@@ -90,7 +94,7 @@
     ul {
       display: flex;
       justify-content: space-around;
-      margin: auto;
+      flex-wrap: wrap;
     }
 
     a {
@@ -124,11 +128,15 @@
 
   &__heading {
     color: #fff;
-    font-size: 3.4rem;
+    font-size: 2.4rem;
     font-family: var(--font-family-plain);
     font-weight: 500;
     letter-spacing: 0.014em;
     margin-bottom: 2.6rem;
+
+    @mixin bp sm {
+      font-size: 3.4rem;
+    }
   }
 
   input[type="email"] {

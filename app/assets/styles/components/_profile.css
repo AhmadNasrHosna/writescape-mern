@@ -74,7 +74,7 @@
       }
 
       &:hover {
-        background: hsla(calc(var(--color-primary-h) + 14), 25%, 87%, 1);
+        background: hsla(calc(var(--color-primary-h) + 18), 25%, 87%, 1);
         color: var(--color-primary);
 
         .c-profile__count {
@@ -89,7 +89,7 @@
   }
 
   &__content {
-    padding: rem(30px) 0;
+    padding: rem(30px 0 70px);
   }
 
   &__posts {

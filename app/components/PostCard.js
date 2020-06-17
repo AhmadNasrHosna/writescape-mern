@@ -13,7 +13,7 @@ function PostCard({ post, onClick, isAuthorHidden, className }) {
         <div className={"c-post-card " + (className ? className : "")}>
           <h2 className="c-post-card__title">{title}</h2>{" "}
           <span className={`c-post-card__date ${!isAuthorHidden && "u-mb-3"}`}>
-            on {dateFormatted}
+            {dateFormatted}
           </span>
           <div className="c-post-card__author">
             {!isAuthorHidden && (
