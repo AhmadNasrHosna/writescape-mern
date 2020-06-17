@@ -72,8 +72,8 @@ config = {
   plugins: [
     new Dotenv(),
     new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "app/index-template.html",
+      fileName: "index.html",
+      template: "./app/index-template.html",
       alwaysWriteToDisk: true,
     }),
     new HtmlWebpackHarddiskPlugin(),

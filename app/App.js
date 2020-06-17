@@ -2,7 +2,7 @@ import React, { useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { useImmerReducer } from "use-immer";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import Axios from "axios";
 
@@ -152,12 +152,18 @@ function App() {
                   <Route path="/profile/:username">
                     <Profile />
                   </Route>
-                  <Route path="/login">
-                    {state.loggedIn ? <Home /> : <LoginPage />}
-                  </Route>
-                  <Route path="/register">
-                    {state.loggedIn ? <Home /> : <RegisterPage />}
-                  </Route>
+                  {!state.loggedIn ? (
+                    <>
+                      <Route path="/login">
+                        {state.loggedIn ? <Home /> : <LoginPage />}
+                      </Route>
+                      <Route path="/register">
+                        {state.loggedIn ? <Home /> : <RegisterPage />}
+                      </Route>
+                    </>
+                  ) : (
+                    <Redirect to="/" />
+                  )}
                   <Route>
                     <NotFound />
                   </Route>

@@ -45,3 +45,12 @@
 .u-color-text-900 {
   color: var(--color-text-900);
 }
+
+
+/**
+ * Text transform
+ */
+
+ .u-uppercase {
+  text-transform: uppercase
+}

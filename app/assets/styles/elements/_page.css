@@ -13,6 +13,8 @@
  *
  * 3. The scrolling box scrolls in a smooth fashion.
  *    https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
+ *
+ * 4. Help prevent overflow of long words/names/URLs
  */
 
 html {
@@ -27,7 +29,7 @@ body {
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeSpeed;
-  word-wrap: break-word;
+  word-wrap: break-word; /* [4] */
   font-size: rem(18px);
   letter-spacing: .014em;
 }

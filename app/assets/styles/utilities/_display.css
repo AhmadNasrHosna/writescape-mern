@@ -1,3 +1,7 @@
 .u-inline-block {
   display: inline-block;
 }
+
+.u-flex {
+  display: flex;
+}

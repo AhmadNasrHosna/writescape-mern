@@ -43,9 +43,17 @@ function ProfileFollow({ urlPath, followerCount, followingCount }) {
     // If the list empty
     if (!followingCount && !list.length) {
       if (isVisitorOwner()) {
-        return <p>You aren&rsquo;t following anyone yet.</p>;
+        return (
+          <div className="c-profile__emptylist-message">
+            <p>You aren&rsquo;t following anyone yet.</p>
+          </div>
+        );
       } else {
-        return <p>{username} isn&rsquo;t following anyone yet.</p>;
+        return (
+          <div className="c-profile__emptylist-message">
+            <p>{username} isn&rsquo;t following anyone yet.</p>
+          </div>
+        );
       }
     }
   }
@@ -54,42 +62,59 @@ function ProfileFollow({ urlPath, followerCount, followingCount }) {
     // If the list empty
     if (!followerCount && !list.length) {
       if (isVisitorOwner()) {
-        return <p>You don&rsquo;t have any followers yet.</p>;
+        return (
+          <div className="c-profile__emptylist-message">
+            <p>You don&rsquo;t have any followers yet.</p>
+          </div>
+        );
       } else {
         return (
-          <p>
-            {username} doesn&rsquo;t have any followers yet.
-            {appState.loggedIn ? (
-              " Be the first to follow him!"
-            ) : (
-              <>
-                If you want to follow him you need to{" "}
-                <Link to="/">sign up</Link> for an account first.
-              </>
-            )}
-          </p>
+          <div className="c-profile__emptylist-message">
+            <p>
+              {username} doesn&rsquo;t have any followers yet.{" "}
+              {appState.loggedIn ? (
+                "Be the first to follow him!"
+              ) : (
+                <>
+                  If you want to follow him you need to{" "}
+                  <Link to="/">sign up</Link> for an account first.
+                </>
+              )}
+            </p>
+          </div>
         );
       }
     }
   }
 
   return (
-    <div className="list-group">
-      {list.map(({ username, avatar }, index) => {
-        return (
-          <Link
-            to={`/profile/${username}`}
-            key={index}
-            className="list-group-item list-group-item-action"
-          >
-            <img className="avatar-tiny" src={avatar} />
-            {username}
-          </Link>
-        );
-      })}
+    <>
+      {!!list.length && (
+        <ul className="o-list c-profile__follow">
+          {list.map(({ username, avatar }, index) => {
+            return (
+              <li>
+                <Link
+                  to={`/profile/${username}`}
+                  key={index}
+                  className="c-profile__follow-item"
+                >
+                  <div className="c-avatar c-avatar--red">
+                    <span className="c-avatar__firstletter">
+                      {username.slice(0, 1).toUpperCase()}
+                    </span>
+                    <img src={avatar} alt={`Profile picture of ${username}`} />
+                  </div>
+                  <span>{username}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
       {urlPath == "/followers" && handleEmptyFollowersList()}
       {urlPath == "/following" && handleEmptyFollowingList()}
-    </div>
+    </>
   );
 }
 

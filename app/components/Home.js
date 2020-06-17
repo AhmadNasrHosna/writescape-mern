@@ -56,11 +56,11 @@ function Home() {
                 <h2 className="o-section__title o-section__title--sm u-align-center">
                   The latest from those you follow
                 </h2>
-                <div className="c-feed__list u-flow__g-s6">
+                <ul className="o-list c-feed__list u-flow__g-s6">
                   {feed.map((post) => {
                     return <PostCard post={post} key={post._id} />;
                   })}
-                </div>
+                </ul>
               </>
             )}
             {feed.length == 0 && (

@@ -11,6 +11,10 @@
   flex-direction: column;
   align-items: flex-start;
 
+  &--profile {
+    background: hsla(var(--color-primary-h), 14%, 96%, 1)
+  }
+
   &__author {
     margin-top: auto;
 

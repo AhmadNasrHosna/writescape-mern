@@ -20,7 +20,7 @@ LISTS (GLOBAL)
     } /* Fallback styles for old browesers */
 
     @supports (display: flex) {
-      display: inline-flex; /* [1] */
+      display: flex; /* [1] */
     }
   }
 }

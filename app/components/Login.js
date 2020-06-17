@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import Axios from "axios";
+
 import DispatchContext from "../DispatchContext";
 
 function Login() {
@@ -36,6 +37,7 @@ function Login() {
       console.log("There was a problem.");
     }
   }
+
   return (
     <form onSubmit={handleSubmit} className="o-form">
       <div className="o-form__group">

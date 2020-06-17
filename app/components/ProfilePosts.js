@@ -50,24 +50,39 @@ function ProfilePosts() {
     if (!posts.length) {
       if (isVisitorOwner()) {
         return (
-          <p>
-            You haven&rsquo;t created any posts yet;{" "}
-            <Link to="/create-post">create one now!</Link>
-          </p>
+          <div className="c-profile__emptylist-message">
+            <p>
+              You haven&rsquo;t created any posts yet;{" "}
+              <Link to="/create-post">create one now!</Link>
+            </p>
+          </div>
         );
       } else {
-        return <p>{username} hasn&rsquo;t created any posts yet.</p>;
+        return (
+          <div className="c-profile__emptylist-message">
+            <p>{username} hasn&rsquo;t created any posts yet.</p>
+          </div>
+        );
       }
     }
   }
 
   return (
-    <div className="list-group">
-      {posts.map((post) => {
-        return <PostCard post={post} key={post._id} isAuthorHidden={true} />;
-      })}
+    <>
+      <ul className="o-list c-profile__posts">
+        {posts.map((post) => {
+          return (
+            <PostCard
+              post={post}
+              key={post._id}
+              isAuthorHidden={true}
+              className="c-post-card--profile"
+            />
+          );
+        })}
+      </ul>
       {handleEmptyList()}
-    </div>
+    </>
   );
 }
 

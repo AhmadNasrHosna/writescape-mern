@@ -205,8 +205,6 @@ function Profile() {
                   state.profileData.profileUsername != "..." && (
                     <button
                       onClick={stopFollowing}
-                      onMouseEnter={() => console.log("move")}
-                      onMouseLeave={() => console.log("leave")}
                       disabled={state.followActionLoading}
                       className="c-button c-button--primary c-button--medium c-button--icon c-button--shadow"
                     >
@@ -273,24 +271,26 @@ function Profile() {
         </header>
       </div>
       <Container wide="medium">
-        {" "}
-        <Switch>
-          <Route exact path={`${match.path}`}>
-            <ProfilePosts />
-          </Route>
-          <Route path={`${match.path}/followers`}>
-            <ProfileFollow
-              urlPath="/followers"
-              followerCount={state.profileData.counts.followerCount}
-            />
-          </Route>
-          <Route path={`${match.path}/following`}>
-            <ProfileFollow
-              urlPath="/following"
-              followingCount={state.profileData.counts.followingCount}
-            />
-          </Route>
-        </Switch>
+        <section className="c-profile__content">
+          {" "}
+          <Switch>
+            <Route exact path={`${match.path}`}>
+              <ProfilePosts />
+            </Route>
+            <Route path={`${match.path}/followers`}>
+              <ProfileFollow
+                urlPath="/followers"
+                followerCount={state.profileData.counts.followerCount}
+              />
+            </Route>
+            <Route path={`${match.path}/following`}>
+              <ProfileFollow
+                urlPath="/following"
+                followingCount={state.profileData.counts.followingCount}
+              />
+            </Route>
+          </Switch>
+        </section>
       </Container>
     </Page>
   );

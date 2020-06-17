@@ -72,6 +72,25 @@
   }
 }
 
+.c-button--submit-dark {
+  background-color: #fff;
+  color: var(--color-primary);
+
+  &:hover {
+    box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 55%, 61%, 1);
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px hsl(var(--color-primary-h), 16%, 20%);
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+}
+
 .c-button--shadow {
   box-shadow: 0 4px 10px hsla(var(--color-primary-h), 15%, 25%, 0.25);
 }
