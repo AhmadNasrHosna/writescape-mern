@@ -57,7 +57,7 @@
 
   &__nav {
     border-bottom: 3px solid hsla(var(--color-primary-h), 30%, 90%, 1);
-    margin-top: rem(50px);
+    margin-top: rem(30px);
     border-top: 3px solid hsla(calc(var(--color-primary-h) + 14), 14%, 91%, 1);
     background: hsla(calc(var(--color-primary-h) + 20), 20%, 70%, 0.1);
 
