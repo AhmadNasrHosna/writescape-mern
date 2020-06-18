@@ -31,15 +31,14 @@
   }
 
   &__wrapper {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 0;
     text-align: center;
     position: relative;
-    padding-bottom: 0;
     overflow: hidden;
     z-index: 1;
 
     @mixin bp md {
-      padding: 8rem 4rem;
+      padding: 8rem 4rem 0;
     }
   }
 
@@ -95,6 +94,16 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+
+      @mixin bp as {
+        margin-bottom: -1.5rem;
+
+        li {
+          flex-basis: 33.333%;
+          max-width: 33.333%;
+          margin-bottom: 1.5rem;
+        }
+      }
     }
 
     a {

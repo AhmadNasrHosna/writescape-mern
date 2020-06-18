@@ -2,7 +2,10 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5em 1.75em;
+  padding: 0.5em 1.25em;
+  @mixin bp sm {
+     padding: 0.5em 1.75em;
+  }
   margin: 0;
   text-decoration: none;
   background-color: transparent;

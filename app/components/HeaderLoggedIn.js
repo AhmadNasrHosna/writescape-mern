@@ -54,6 +54,7 @@ function HeaderLoggedIn() {
         to={`/profile/${appState.user.username}`}
         data-tip="My Profile"
         data-for="profile"
+        className="p-header__profile-pic"
       >
         <div className="c-avatar c-avatar--red">
           <span className="c-avatar__firstletter">
@@ -67,18 +68,24 @@ function HeaderLoggedIn() {
       </Link>{" "}
       <ReactTooltip place="bottom" id="profile" className="custom-tooltip" />
       <div className="p-header__nav-btns">
-        <Link
-          to="/create-post"
-          className="c-button c-button--inverse c-button--small"
-        >
-          Create Post
-        </Link>{" "}
-        <button
-          onClick={handleLogOut}
-          className="c-button c-button--primary c-button--small"
-        >
-          Sign Out
-        </button>
+        <ul className="o-list o-list--inline">
+          <li>
+            <Link
+              to="/create-post"
+              className="c-button c-button--inverse c-button--small c-button--100%"
+            >
+              Create Post
+            </Link>{" "}
+          </li>
+          <li>
+            <button
+              onClick={handleLogOut}
+              className="c-button c-button--primary c-button--small c-button--100%"
+            >
+              Sign Out
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   );

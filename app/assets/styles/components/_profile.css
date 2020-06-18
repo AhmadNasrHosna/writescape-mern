@@ -9,7 +9,12 @@
 
   &__username {
     font-family: var(--font-family-plain);
-    margin-left: rem(45px);
+    text-align: center;
+
+    @mixin bp md {
+      margin-left: rem(45px);
+      text-align: start;
+    }
 
     &:before {
       content: "User profile:";
@@ -24,6 +29,14 @@
   &__user {
     display: flex;
     align-items: center;
+
+    @mixin bp as {
+      flex-direction: column;
+
+      > * + * {
+        margin-top: rem(40px);
+      }
+    }
   }
 
   &__count {
@@ -44,13 +57,32 @@
 
   &__nav {
     border-bottom: 3px solid hsla(var(--color-primary-h), 30%, 90%, 1);
-    margin-top: rem(60px);
-    box-shadow: 0 3px 2px hsla(, 20%, 20%, 0.025);
+    margin-top: rem(50px);
     border-top: 3px solid hsla(calc(var(--color-primary-h) + 14), 14%, 91%, 1);
     background: hsla(calc(var(--color-primary-h) + 20), 20%, 70%, 0.1);
 
+    @mixin bp md {
+      margin-top: rem(60px);
+    }
+
+    ul {
+      @mixin bp as {
+        flex-direction: column;
+        margin-inline: rem(-10px);
+      }
+    }
+
     a {
-      padding: rem(19px 50px 13px);
+      padding: rem(19px 20px 13px);
+      width: 100%;
+      justify-content: space-between;
+
+      @mixin bp md {
+        padding: rem(19px 50px 13px);
+        width: auto;
+        justify-content: center;
+      }
+
       border-bottom: 3px solid transparent;
       color: hsla(var(--color-primary-h), 10%, 45%, 1);
       display: inline-flex;
@@ -85,7 +117,9 @@
   }
 
   &__actions {
-    margin-left: auto;
+    @mixin bp md {
+      margin-left: auto;
+    }
   }
 
   &__content {

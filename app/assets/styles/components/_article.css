@@ -113,7 +113,17 @@
 
   &__body {
     position: relative;
-    color: hsla(var(--color-primary-h), 15%, 28%, 1);
+    color: hsla(var(--color-primary-h), 10%, 31%, 1);
+
+    > *:nth-child(2) {
+      margin-top: 0;
+
+      &:first-letter {
+        line-height: 1;
+        font-size: 127%;
+        font-weight: 600;
+      }
+    }
 
     ul {
       line-height: 1.9;
