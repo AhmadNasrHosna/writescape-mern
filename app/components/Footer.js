@@ -27,8 +27,8 @@ export default function Footer() {
             </div>
 
             <div className="p-footer__contact">
-              <p class="u-uppercase">Stay in touch</p>
-              <ul class="o-list o-list--inline">
+              <p className="u-uppercase">Stay in touch</p>
+              <ul className="o-list o-list--inline">
                 <li>
                   <a href="#0" aria-label="Twitter" target="_blank">
                     <svg

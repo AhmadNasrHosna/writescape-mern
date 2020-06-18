@@ -93,10 +93,9 @@ function ProfileFollow({ urlPath, followerCount, followingCount }) {
         <ul className="o-list c-profile__follow">
           {list.map(({ username, avatar }, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link
                   to={`/profile/${username}`}
-                  key={index}
                   className="c-profile__follow-item"
                 >
                   <div className="c-avatar c-avatar--red">

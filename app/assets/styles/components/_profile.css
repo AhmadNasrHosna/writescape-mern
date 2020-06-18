@@ -67,7 +67,8 @@
     border-bottom: 3px solid hsla(var(--color-primary-h), 30%, 90%, 1);
     margin-top: rem(60px);
     border-top: 3px solid hsla(calc(var(--color-primary-h) + 14), 14%, 91%, 1);
-    background: hsla(calc(var(--color-primary-h) + 20), 20%, 70%, 0.1);
+    background: hsla(calc(var(--color-primary-h) + 20), 20%, 70%, 0.115);
+    position: relative;
 
     ul {
       @mixin bp as {
@@ -95,19 +96,9 @@
       font-weight: 600;
       font-size: 16px;
 
-      &.active {
+      /* &.active {
         border-bottom-color: var(--color-primary);
-      }
-
-      &.active,
-      &:focus {
-        color: var(--color-primary);
-
-        .c-profile__count {
-          background-color: var(--color-primary);
-          box-shadow: 0 3px 3px hsla(var(--color-primary-h), 55%, 42%, 0.3);
-        }
-      }
+      } */
 
       &:hover {
         background: hsla(calc(var(--color-primary-h) + 18), 25%, 87%, 1);
@@ -183,5 +174,14 @@
     p {
       line-height: 1.5;
     }
+  }
+
+  &__floating-underline {
+    display: block;
+    height: 3px;
+    background: var(--color-primary);
+    position: absolute;
+    transition: all 200ms ease;
+    left: 0;
   }
 }

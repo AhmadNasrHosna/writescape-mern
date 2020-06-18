@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import {
   useParams,
   NavLink,
   Switch,
   Route,
   useRouteMatch,
+  useLocation,
 } from "react-router-dom";
 import { useImmer } from "use-immer";
 import Axios from "axios";
@@ -20,8 +21,13 @@ import NotFound from "./NotFound";
 function Profile() {
   const { username } = useParams();
   const match = useRouteMatch();
-  console.log(match);
+  const location = useLocation();
+
+  console.log(location);
   const appState = useContext(StateContext);
+  const profileNav = useRef(null);
+  const floatingUnderline = useRef(null);
+
   const [state, setState] = useImmer({
     followActionLoading: false,
     startFollowingRequestCount: 0,
@@ -132,9 +138,59 @@ function Profile() {
     }
   }, [state.stopFollowingRequestCount]);
 
+  // Animated Underline  Effect
+  useEffect(() => {
+    const triggers = profileNav.current.querySelectorAll(
+      ".c-profile__nav-link"
+    );
+
+    triggers.forEach((link) => {
+      if (link.classList.contains("active")) {
+        animateTheUnderline(link);
+      }
+    });
+
+    const handleUnderlineAnimation = (e) => {
+      clearTimer();
+      animateTheUnderline(e.currentTarget);
+    };
+
+    function animateTheUnderline(elem) {
+      floatingUnderline.current.style.opacity = "1";
+      floatingUnderline.current.style.width = elem.offsetWidth + "px";
+      floatingUnderline.current.style.transform = `translate(${
+        elem.offsetLeft
+      }px, ${elem.offsetTop + elem.offsetHeight}px)`;
+    }
+
+    triggers.forEach((link) =>
+      link.addEventListener("mouseenter", handleUnderlineAnimation)
+    );
+
+    let timer;
+
+    triggers.forEach((link) =>
+      link.addEventListener("mouseleave", () => {
+        timer = setTimeout(() => {
+          triggers.forEach((link) => {
+            if (link.classList.contains("active")) {
+              animateTheUnderline(link);
+            }
+          });
+        }, 100);
+      })
+    );
+
+    function clearTimer() {
+      clearTimeout(timer);
+    }
+  }, [match.url, location.pathname]);
+
+  // -----------------
+
   function isVisitorNotOwner() {
     if (!appState.loggedIn) return;
-    // Now user logged in!
+    // Now user was logged in!
     return appState.user.username != state.profileData.profileUsername;
   }
 
@@ -229,15 +285,18 @@ function Profile() {
                 )}
             </div>
           </Container>
-          <nav className="c-profile__nav">
+          <nav className="c-profile__nav" ref={profileNav}>
             <Container wide="medium">
-              {" "}
+              <span
+                className="c-profile__floating-underline"
+                ref={floatingUnderline}
+              ></span>
               <ul className="o-list o-list--inline">
                 <li>
                   <NavLink
                     exact
                     to={`${match.url}`}
-                    className="nav-item nav-link"
+                    className="c-profile__nav-link"
                   >
                     Posts:{" "}
                     <span className="c-profile__count">
@@ -248,7 +307,7 @@ function Profile() {
                 <li>
                   <NavLink
                     to={`${match.url}/followers`}
-                    className="nav-item nav-link"
+                    className="c-profile__nav-link"
                   >
                     Followers:{" "}
                     <span className="c-profile__count">
@@ -259,7 +318,7 @@ function Profile() {
                 <li>
                   <NavLink
                     to={`${match.url}/following`}
-                    className="nav-item nav-link"
+                    className="c-profile__nav-link"
                   >
                     Following:{" "}
                     <span className="c-profile__count">
