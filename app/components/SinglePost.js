@@ -137,7 +137,7 @@ function SinglePost() {
                 <ReactTooltip id="delete" className="custom-tooltip" />
               </div>
             )}
-            <div className="c-article__meta u-mv-auto">
+            <div className="c-article__meta">
               <Link to={`/profile/${post.author.username}`}>
                 <div className="c-article__author">
                   <div className="c-avatar c-avatar--dark u-inline-block">
