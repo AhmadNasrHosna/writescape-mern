@@ -70,11 +70,12 @@
     background-size: 100%;
     position: relative;
     z-index: 1;
-    padding: rem(100px) 0;
+    padding: rem(90px 0 100px);
     box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, 0.1);
 
     @mixin bp sm {
       background-size: 47%;
+      padding: rem(100px) 0;
     }
 
     &:before {
@@ -100,6 +101,7 @@
     color: hsla(var(--color-primary-h), 14%, 35%, 1);
     background: hsl(var(--color-primary-h), 20%, 87%);
     font-size: rem(12.5px);
+    border-radius: 2px;
 
     @mixin bp xs {
       position: absolute;
