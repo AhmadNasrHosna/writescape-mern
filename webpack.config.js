@@ -32,13 +32,6 @@ class RunAfterCompile {
     compiler.hooks.done.tap("Copy files", function () {
       fse.copySync("./app/assets/images", "./dist/assets/images");
       fse.copySync("./app/assets/fonts", "./dist/assets/fonts");
-
-      /*
-        If you needed to copy another file or folder
-        such as your "images" folder, you could just
-        call fse.copySync() as many times as you need
-        to here to cover all of your files/folders.
-      */
     });
   }
 }
@@ -116,7 +109,7 @@ if (currentTask == "webpackDev" || currentTask == "dev") {
       syntax: "scss",
       failOnError: false,
       quiet: false,
-      emitErrors: true, // by default this is to true to check the CSS lint errors
+      emitErrors: true, // by default this is true to check the CSS lint errors
     })
   );
 }
