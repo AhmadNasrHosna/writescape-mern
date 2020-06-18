@@ -104,7 +104,7 @@
     padding: 0.25em 0.75em;
     color: hsla(var(--color-primary-h), 14%, 35%, 1);
     background: hsl(var(--color-primary-h), 20%, 87%);
-    font-size: rem(14px);
+    font-size: rem(12.5px);
     margin-left: 1.5rem;
 
     @mixin bp sm {
