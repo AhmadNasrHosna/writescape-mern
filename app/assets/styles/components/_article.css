@@ -62,10 +62,6 @@
     > span {
       margin-left: rem(16px);
     }
-
-    @mixin bp xs {
-      transform: scale(0.8);
-    }
   }
 
   &__header {
@@ -74,12 +70,11 @@
     background-size: 100%;
     position: relative;
     z-index: 1;
-    padding: rem(80px 0 100px);
+    padding: rem(100px);
     box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, 0.1);
 
     @mixin bp sm {
       background-size: 47%;
-      padding: rem(100px 0);
     }
 
     &:before {
