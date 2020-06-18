@@ -175,10 +175,10 @@ function Profile() {
                 {state.profileData.profileUsername}
               </h2>
 
-              <div className="c-profile__actions">
-                {isVisitorNotOwner() &&
-                  !state.profileData.isFollowing &&
-                  state.profileData.profileUsername != "..." && (
+              {isVisitorNotOwner() &&
+                !state.profileData.isFollowing &&
+                state.profileData.profileUsername != "..." && (
+                  <div className="c-profile__actions">
                     <button
                       onClick={startFollowing}
                       disabled={state.followActionLoading}
@@ -199,10 +199,12 @@ function Profile() {
                       </svg>
                       Follow
                     </button>
-                  )}
-                {isVisitorNotOwner() &&
-                  state.profileData.isFollowing &&
-                  state.profileData.profileUsername != "..." && (
+                  </div>
+                )}
+              {isVisitorNotOwner() &&
+                state.profileData.isFollowing &&
+                state.profileData.profileUsername != "..." && (
+                  <div className="c-profile__actions">
                     <button
                       onClick={stopFollowing}
                       disabled={state.followActionLoading}
@@ -223,8 +225,8 @@ function Profile() {
                       </svg>
                       Stop Following
                     </button>
-                  )}
-              </div>
+                  </div>
+                )}
             </div>
           </Container>
           <nav className="c-profile__nav">
