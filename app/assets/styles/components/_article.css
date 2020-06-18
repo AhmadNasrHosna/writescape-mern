@@ -13,7 +13,9 @@
   }
 
   &__meta {
-    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__actions {
@@ -60,6 +62,10 @@
     > span {
       margin-left: rem(16px);
     }
+
+    @mixin bp xs {
+      transform: scale(0.9);
+    }
   }
 
   &__header {
@@ -68,11 +74,12 @@
     background-size: 100%;
     position: relative;
     z-index: 1;
-    padding: rem(100px) 0;
+    padding: rem(60px 0 100px);
     box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, 0.1);
 
     @mixin bp sm {
       background-size: 47%;
+      padding: rem(100px 0);
     }
 
     &:before {
@@ -96,18 +103,17 @@
     display: inline-block;
     padding: 0.25em 0.75em;
     color: hsla(var(--color-primary-h), 14%, 35%, 1);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 3rem 0;
     background: hsl(var(--color-primary-h), 20%, 87%);
-    font-size: 16px;
+    font-size: rem(14px);
+    margin-left: 1.5rem;
 
     @mixin bp sm {
-      margin: 3rem;
-      left: 0;
-      transform: translateX(0);
+      font-size: rem(15px);
+      margin-left: 2rem;
+    }
+
+    @mixin bp sm {
+      font-size: rem(16px);
     }
   }
 
