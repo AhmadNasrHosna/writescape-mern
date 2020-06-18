@@ -138,9 +138,19 @@ function Profile() {
 
   // Animated Underline Effect
   useEffect(() => {
+    let timer;
+
     const triggers = profileNav.current.querySelectorAll(
       ".c-profile__nav-link"
     );
+
+    triggers.forEach((link) => {
+      link.addEventListener("mouseenter", handleMouseEnter);
+    });
+
+    triggers.forEach((link) => {
+      link.addEventListener("mouseleave", handleMouseLeave);
+    });
 
     triggers.forEach((link) => {
       if (link.classList.contains("active")) {
@@ -148,10 +158,20 @@ function Profile() {
       }
     });
 
-    const handleUnderlineAnimation = (e) => {
-      clearTimer();
+    function handleMouseEnter(e) {
+      clearTimeout(timer);
       animateTheUnderline(e.currentTarget);
-    };
+    }
+
+    function handleMouseLeave() {
+      timer = setTimeout(() => {
+        triggers.forEach((link) => {
+          if (link.classList.contains("active")) {
+            animateTheUnderline(link);
+          }
+        });
+      }, 100);
+    }
 
     function animateTheUnderline(elem) {
       floatingUnderline.current.style.opacity = "1";
@@ -161,34 +181,9 @@ function Profile() {
       }px, ${elem.offsetTop + elem.offsetHeight}px)`;
     }
 
-    triggers.forEach((link) =>
-      link.addEventListener("mouseenter", handleUnderlineAnimation)
-    );
-
-    let timer;
-
-    triggers.forEach((link) =>
-      link.addEventListener(
-        "mouseleave",
-        () => {
-          timer = setTimeout(() => {
-            triggers.forEach((link) => {
-              if (link.classList.contains("active")) {
-                animateTheUnderline(link);
-              }
-            });
-          }, 100);
-        },
-        { once: true }
-      )
-    );
-
-    function clearTimer() {
-      clearTimeout(timer);
-    }
-
     return function cleanupListener() {
-      window.removeEventListener("mouseenter", handleUnderlineAnimation);
+      window.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [username, location.pathname]);
 
