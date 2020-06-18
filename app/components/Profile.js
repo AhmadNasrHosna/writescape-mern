@@ -168,20 +168,28 @@ function Profile() {
     let timer;
 
     triggers.forEach((link) =>
-      link.addEventListener("mouseleave", () => {
-        timer = setTimeout(() => {
-          triggers.forEach((link) => {
-            if (link.classList.contains("active")) {
-              animateTheUnderline(link);
-            }
-          });
-        }, 100);
-      })
+      link.addEventListener(
+        "mouseleave",
+        () => {
+          timer = setTimeout(() => {
+            triggers.forEach((link) => {
+              if (link.classList.contains("active")) {
+                animateTheUnderline(link);
+              }
+            });
+          }, 100);
+        },
+        { once: true }
+      )
     );
 
     function clearTimer() {
       clearTimeout(timer);
     }
+
+    return function cleanupListener() {
+      window.removeEventListener("mouseenter", handleUnderlineAnimation);
+    };
   }, [username, location.pathname]);
 
   // -----------------
