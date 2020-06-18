@@ -100,6 +100,15 @@
         border-bottom-color: var(--color-primary);
       } */
 
+      &.active {
+        color: var(--color-primary);
+
+        .c-profile__count {
+          background-color: var(--color-primary);
+          box-shadow: 0 3px 3px hsla(var(--color-primary-h), 55%, 42%, 0.3);
+        }
+      }
+
       &:hover {
         background: hsla(calc(var(--color-primary-h) + 18), 25%, 87%, 1);
         color: var(--color-primary);
@@ -176,7 +185,7 @@
     }
   }
 
-  &__floating-underline {
+&__floating-underline {
     display: block;
     height: 3px;
     background: var(--color-primary);

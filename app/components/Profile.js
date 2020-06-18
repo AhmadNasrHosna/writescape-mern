@@ -22,8 +22,6 @@ function Profile() {
   const { username } = useParams();
   const match = useRouteMatch();
   const location = useLocation();
-
-  console.log(location);
   const appState = useContext(StateContext);
   const profileNav = useRef(null);
   const floatingUnderline = useRef(null);
@@ -138,7 +136,7 @@ function Profile() {
     }
   }, [state.stopFollowingRequestCount]);
 
-  // Animated Underline  Effect
+  // Animated Underline Effect
   useEffect(() => {
     const triggers = profileNav.current.querySelectorAll(
       ".c-profile__nav-link"
@@ -184,7 +182,7 @@ function Profile() {
     function clearTimer() {
       clearTimeout(timer);
     }
-  }, [match.url, location.pathname]);
+  }, [username, location.pathname]);
 
   // -----------------
 
