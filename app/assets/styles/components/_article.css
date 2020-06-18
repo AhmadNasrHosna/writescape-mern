@@ -70,7 +70,7 @@
     background-size: 100%;
     position: relative;
     z-index: 1;
-    padding: rem(100px);
+    padding: rem(100px) 0;
     box-shadow: 0 4px 7px hsla(var(--color-primary-h), 16%, 20%, 0.1);
 
     @mixin bp sm {
