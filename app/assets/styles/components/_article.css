@@ -110,6 +110,7 @@
 
     @mixin bp sm {
       font-size: rem(15px);
+      margin-left: 2.75rem;
     }
 
     @mixin bp md {
