@@ -12,7 +12,7 @@
   --container-width-sm: rem(976px);
   --container-width-md: rem(1024px);
   --container-width-lg: rem(1200px);
-  --container-padding: var(--gap);
+  --container-padding: calc(var(--gap) * 1.5);
 }
 
 .o-container {
@@ -29,5 +29,9 @@
 
   &--medium {
     max-width: rem(1054px);
+  }
+
+  .o-container {
+    --container-padding: 0;
   }
 }
