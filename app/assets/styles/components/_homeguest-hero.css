@@ -1,29 +1,38 @@
 .c-homeguest-hero {
   &__inner {
-    display: flex;
-    justify-content: space-between;
+    @mixin bp md {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__text {
-    flex-basis: 50%;
-    max-width: 50%;
-    @mixin center-cy;
+    @mixin bp md {
+      flex-basis: 50%;
+      max-width: 50%;
+      @mixin center-cy;
+    }
   }
 
   &__illustration {
-    flex-basis: 47.5%;
-    max-width: 47.5%;
+    display: none;
 
-    form {
-      display: none;
+    @mixin bp md {
+      display: block;
+      flex-basis: 47.5%;
+      max-width: 47.5%;
     }
   }
 
   &__title {
-    font-size: rem(60px);
+    font-size: rem(40px);
     font-family: var(--font-family-display);
     letter-spacing: -0.06em;
     margin-bottom: 2.5rem;
     color: var(--color-text-800);
+
+    @mixin bp sm {
+      font-size: rem(60px);
+    }
   }
 }

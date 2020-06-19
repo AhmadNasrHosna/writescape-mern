@@ -33,13 +33,19 @@
     }
   }
 
+  &__loggedout {
+    @mixin bp xs {
+      padding-top: 3.75rem;
+    }
+  }
+
   &__profile-pic {
     @mixin bp xs {
       margin-right: 0.75rem;
     }
   }
 
-  &__nav-btns {
+  &__btns {
     margin-left: 2.75rem;
 
     > * + * {
@@ -96,24 +102,6 @@
       display: flex;
       align-items: center;
       line-height: 1;
-    }
-  }
-
-  &__nav {
-    ul {
-      @mixin bp xs {
-        width: 100%;
-      }
-
-      li {
-        @mixin bp xs {
-          width: calc(100% - rem(5px));
-        }
-
-        + li {
-          margin-left: rem(10px);
-        }
-      }
     }
   }
 

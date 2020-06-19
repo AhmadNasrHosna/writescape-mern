@@ -113,6 +113,7 @@
 @import "components/_share";
 @import "components/_tooltip";
 @import "components/_profile";
+@import "components/_floating-underline";
 
 /**
  * Patterns. (namespace: p-)

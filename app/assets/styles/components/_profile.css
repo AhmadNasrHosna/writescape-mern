@@ -185,12 +185,3 @@
     }
   }
 }
-
-.c-floating-underline {
-  display: block;
-  position: absolute;
-  transition: all 200ms ease;
-  opacity: 0;
-  background: var(--color-primary);
-  pointer-events: none;
-}

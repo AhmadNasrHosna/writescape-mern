@@ -21,7 +21,10 @@
   $bp-xl: 75em; //~ 1200px
 
   // OTHER CUSTOM VARIABLES
-  --gap: 2rem;
+  --gap: 1.5rem;
+  @media (min-width: $bp-sm) {
+    --gap: 2rem;
+  }
   --color-primary-h: 6;
   --color-primary-s: 55%;
   --color-primary-l: 42%;

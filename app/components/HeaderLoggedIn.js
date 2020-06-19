@@ -67,7 +67,7 @@ function HeaderLoggedIn() {
         </div>
       </Link>{" "}
       <ReactTooltip place="bottom" id="profile" className="custom-tooltip" />
-      <div className="p-header__nav-btns">
+      <div className="p-header__btns">
         <ul className="o-list o-list--inline">
           <li>
             <Link
