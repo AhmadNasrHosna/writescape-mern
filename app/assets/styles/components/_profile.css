@@ -184,13 +184,15 @@
       line-height: 1.5;
     }
   }
+}
 
-&__floating-underline {
-    display: block;
-    height: 3px;
-    background: var(--color-primary);
-    position: absolute;
-    transition: all 200ms ease;
-    left: 0;
-  }
+.c-floating-underline {
+  display: block;
+  position: absolute;
+  transition: all 200ms ease;
+  opacity: 0;
+  background: var(--color-primary);
+  pointer-events: none;
+  height: 3px;
+  bottom: 0;
 }

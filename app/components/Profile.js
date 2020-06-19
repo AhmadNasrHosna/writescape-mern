@@ -176,9 +176,7 @@ function Profile() {
     function animateTheUnderline(elem) {
       floatingUnderline.current.style.opacity = "1";
       floatingUnderline.current.style.width = elem.offsetWidth + "px";
-      floatingUnderline.current.style.transform = `translate(${
-        elem.offsetLeft
-      }px, ${elem.offsetTop + elem.offsetHeight}px)`;
+      floatingUnderline.current.style.transform = `translate(${elem.offsetLeft}px, ${elem.offsetTop}px)`;
     }
 
     return function cleanupListener() {
@@ -288,11 +286,10 @@ function Profile() {
           </Container>
           <nav className="c-profile__nav" ref={profileNav}>
             <Container wide="medium">
-              <span
-                className="c-profile__floating-underline"
-                ref={floatingUnderline}
-              ></span>
-              <ul className="o-list o-list--inline">
+              <ul
+                className="o-list o-list--inline"
+                style={{ position: "relative" }}
+              >
                 <li>
                   <NavLink
                     exact
@@ -327,6 +324,10 @@ function Profile() {
                     </span>
                   </NavLink>
                 </li>
+                <span
+                  className="c-floating-underline"
+                  ref={floatingUnderline}
+                ></span>
               </ul>
             </Container>
           </nav>
