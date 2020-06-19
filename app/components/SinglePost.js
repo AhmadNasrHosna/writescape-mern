@@ -120,23 +120,6 @@ function SinglePost() {
         <header className="c-article__header">
           <Container wide={true}>
             <h2 className="c-article__title">{post.title}</h2>
-            {isVisitorOwner() && (
-              <div className="c-article__actions">
-                <Link to={`/post/${id}/edit`} data-tip="Edit" data-for="edit">
-                  <img src="../assets/images/svg/edit.svg" alt="Edit" />
-                </Link>{" "}
-                <ReactTooltip id="edit" className="custom-tooltip" />
-                <a
-                  onClick={deleteHandler}
-                  href="#delete"
-                  data-tip="Delete"
-                  data-for="delete"
-                >
-                  <img src="../assets/images/svg/trash.svg" alt="Delete" />
-                </a>
-                <ReactTooltip id="delete" className="custom-tooltip" />
-              </div>
-            )}
             <div className="c-article__meta">
               <Link to={`/profile/${post.author.username}`}>
                 <div className="c-article__author">
@@ -156,6 +139,23 @@ function SinglePost() {
                 <time>{dateFormatted}</time>
               </div>
             </div>
+            {isVisitorOwner() && (
+              <div className="c-article__actions">
+                <Link to={`/post/${id}/edit`} data-tip="Edit" data-for="edit">
+                  <img src="../assets/images/svg/edit.svg" alt="Edit" />
+                </Link>{" "}
+                <ReactTooltip id="edit" className="custom-tooltip" />
+                <a
+                  onClick={deleteHandler}
+                  href="#delete"
+                  data-tip="Delete"
+                  data-for="delete"
+                >
+                  <img src="../assets/images/svg/trash.svg" alt="Delete" />
+                </a>
+                <ReactTooltip id="delete" className="custom-tooltip" />
+              </div>
+            )}
           </Container>
         </header>
         <section className="o-section">
