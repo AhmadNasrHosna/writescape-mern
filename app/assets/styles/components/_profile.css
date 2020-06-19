@@ -193,5 +193,4 @@
   opacity: 0;
   background: var(--color-primary);
   pointer-events: none;
-  height: 3px;
 }

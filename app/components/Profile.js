@@ -145,6 +145,7 @@ function Profile() {
     );
 
     floatingUnderline.current.style.top = `${triggers[0].offsetHeight - 3}px`;
+    floatingUnderline.current.style.height = "3px";
 
     triggers.forEach((link) => {
       link.addEventListener("mouseenter", handleMouseEnter);
