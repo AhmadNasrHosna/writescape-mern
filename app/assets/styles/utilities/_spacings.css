@@ -4,6 +4,8 @@
 
 .u-no-pt { padding-top: 0; }
 
+.u-no-pb\:\@sm { padding-bottom: 0; }
+
 .u-mt-1 { margin-top: rem(10px); }
 
 .u-mb-3 { margin-bottom: rem(30px); }
