@@ -9,7 +9,7 @@ import Tabs from "./Tabs";
 function HomeGuest() {
   return (
     <Page scope="homeguest">
-      <section className="o-section u-no-pb:@sm ">
+      <section className="o-section o-section--homeguest-hero u-no-pb:@sm ">
         <Container wide={true}>
           <div className="c-homeguest-hero">
             <Container wide={"medium"}>

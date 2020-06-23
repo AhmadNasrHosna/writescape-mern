@@ -14,7 +14,11 @@
     letter-spacing: -0.06em;
 
     &--md {
-      font-size: rem(40px);
+      font-size: rem(30px);
+
+      @mixin bp sm {
+        font-size: rem(40px);
+      }
     }
 
     &--sm {
@@ -22,6 +26,10 @@
       font-size: rem(25px);
       font-weight: normal;
     }
+  }
+
+  &--homeguest-hero {
+    background: hsla(var(--color-primary-h), 40%, 98%, 1);
   }
 
   &--login,

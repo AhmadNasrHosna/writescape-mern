@@ -8,7 +8,7 @@ function NotFound() {
     <Page title="Not Found" scope="404">
       <section className="o-section o-section--404 u-align-center">
         <Container>
-          <div className="c-404  u-flow">
+          <div className="c-404 u-flow u-flow--5">
             <img
               className="c-404__illustration"
               src="../assets/images/svg/404-illustration.svg"

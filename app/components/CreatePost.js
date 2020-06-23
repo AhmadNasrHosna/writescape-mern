@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import Axios from "axios";
+
 import Page from "./Page";
 import Container from "./Container";
 import DispatchContext from "../DispatchContext";
@@ -10,27 +11,44 @@ function CreatePost() {
   const appDispatch = useContext(DispatchContext);
   const appState = useContext(StateContext);
 
-  const [title, setTitle] = useState();
-  const [body, setBody] = useState();
+  const [title, setTitle] = useState({
+    hasErrors: false,
+    message: "",
+  });
+  const [body, setBody] = useState({
+    hasErrors: false,
+    message: "",
+  });
   const [postId, setPostId] = useState(false);
 
   async function handleSubmit(e) {
     // 1. Prevent the browser default behavior of submitting a form
     e.preventDefault();
 
-    // 2. Send off a network request to our backend server
-    try {
-      const response = await Axios.post("/create-post", {
-        title,
-        body,
-        token: appState.user.token,
-      });
-      // 3. Change piece of state postId to the ID string of the returned response from the server
-      if (response.data) {
-        setPostId(response.data);
+    if (title && body) {
+      // 2. Send off a network request to our backend server
+      try {
+        const response = await Axios.post("/create-post", {
+          title,
+          body,
+          token: appState.user.token,
+        });
+        // 3. Change the piece of state postId to the ID string of the returned response from the server
+        if (response.data) {
+          setPostId(response.data);
+        }
+      } catch (err) {
+        console.log("There was a problem!");
       }
-    } catch (err) {
-      console.log("There was a problem!");
+    } else {
+      if (title == "") {
+        title.hasErrors = true;
+        title.message = "You must provide a title!";
+      }
+      if (body == "") {
+        body.hasErrors = true;
+        body.message = "Content too short!";
+      }
     }
   }
 
@@ -67,6 +85,11 @@ function CreatePost() {
                   placeholder=""
                   autoComplete="off"
                 />
+                {title.hasErrors && (
+                  <div className="alert alert-danger small liveValidateMessage">
+                    {title.message}
+                  </div>
+                )}
               </div>
 
               <div className="o-form__group">
@@ -80,6 +103,11 @@ function CreatePost() {
                   className="body-content tall-textarea form-control"
                   type="text"
                 ></textarea>
+                {body.hasErrors && (
+                  <div className="alert alert-danger small liveValidateMessage">
+                    {title.message}
+                  </div>
+                )}
               </div>
 
               <button className="c-button c-button--medium c-button--accent">

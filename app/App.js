@@ -141,29 +141,24 @@ function App() {
                     <Terms />
                   </Route>
                   <Route path="/create-post">
-                    <CreatePost />
+                    {!state.loggedIn ? <Redirect to="/" /> : <CreatePost />}
                   </Route>
                   <Route path="/post/:id" exact>
                     <SinglePost />
                   </Route>
                   <Route path="/post/:id/edit" exact>
-                    <EditPost />
+                    {!state.loggedIn ? <Redirect to="/" /> : <EditPost />}
                   </Route>
                   <Route path="/profile/:username">
                     <Profile />
                   </Route>
-                  {!state.loggedIn ? (
-                    <>
-                      <Route path="/login">
-                        {state.loggedIn ? <Home /> : <LoginPage />}
-                      </Route>
-                      <Route path="/register">
-                        {state.loggedIn ? <Home /> : <RegisterPage />}
-                      </Route>
-                    </>
-                  ) : (
-                    <Redirect to="/" />
-                  )}
+                  <Route path="/login">
+                    {state.loggedIn ? <Redirect to="/" /> : <LoginPage />}
+                  </Route>
+                  <Route path="/register">
+                    {state.loggedIn ? <Redirect to="/" /> : <RegisterPage />}
+                  </Route>
+
                   <Route>
                     <NotFound />
                   </Route>

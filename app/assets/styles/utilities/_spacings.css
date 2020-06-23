@@ -4,7 +4,11 @@
 
 .u-no-pt { padding-top: 0; }
 
-.u-no-pb\:\@sm { padding-bottom: 0; }
+.u-no-pb\:\@sm {
+  @mixin bp xs {
+     padding-bottom: 0;
+  }
+ }
 
 .u-mt-1 { margin-top: rem(10px); }
 
