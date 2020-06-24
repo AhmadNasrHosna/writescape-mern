@@ -14,10 +14,10 @@ function NotFound() {
               src="../assets/images/svg/404-illustration.svg"
               alt="404 Illustration"
             />
-            <h2 class="c-404__title u-flow__g-s6">
+            <h2 className="c-404__title u-flow__g-s6">
               Whoops, we cannot find that page.
             </h2>
-            <p class="c-404__text">
+            <p className="c-404__text">
               You can always visit the <Link to="/">homepage</Link> to get a
               fresh start.
             </p>
