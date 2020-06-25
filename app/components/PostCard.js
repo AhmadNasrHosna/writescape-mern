@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function PostCard({ post, onClick, isAuthorHidden, className }) {
+function PostCard({ post, onClick, isAuthorHidden, className, avatarState }) {
   const { title, createdDate, _id, author } = post;
   const date = new Date(createdDate);
   const dateFormatted = `
@@ -18,7 +18,14 @@ function PostCard({ post, onClick, isAuthorHidden, className }) {
           <div className="c-post-card__author">
             {!isAuthorHidden && (
               <>
-                <div className="c-avatar c-avatar--blue">
+                <div
+                  className={
+                    "c-avatar " +
+                    (avatarState
+                      ? `c-avatar--${avatarState}`
+                      : "c-avatar--blue")
+                  }
+                >
                   <span className="c-avatar__firstletter">
                     {author.username.slice(0, 1).toUpperCase()}{" "}
                   </span>

@@ -278,12 +278,10 @@ function Register() {
         <CSSTransition
           in={state.username.hasErrors}
           timeout={330}
-          classNames="liveValidateMessage"
+          classNames="c-validate"
           unmountOnExit
         >
-          <div className="alert alert-danger small liveValidateMessage">
-            {state.username.message}
-          </div>
+          <div className="c-validate">{state.username.message}</div>
         </CSSTransition>
       </div>
       <div className="o-form__group">
@@ -306,12 +304,10 @@ function Register() {
         <CSSTransition
           in={state.email.hasErrors}
           timeout={330}
-          classNames="liveValidateMessage"
+          classNames="c-validate"
           unmountOnExit
         >
-          <div className="alert alert-danger small liveValidateMessage">
-            {state.email.message}
-          </div>
+          <div className="c-validate">{state.email.message}</div>
         </CSSTransition>
       </div>
       <div className="o-form__group">
@@ -333,12 +329,10 @@ function Register() {
         <CSSTransition
           in={state.password.hasErrors}
           timeout={330}
-          classNames="liveValidateMessage"
+          classNames="c-validate"
           unmountOnExit
         >
-          <div className="alert alert-danger small liveValidateMessage">
-            {state.password.message}
-          </div>
+          <div className="c-validate">{state.password.message}</div>
         </CSSTransition>
       </div>
       <button

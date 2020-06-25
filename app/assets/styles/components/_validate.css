@@ -1,0 +1,35 @@
+.c-validate {
+  top: -5px;
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background: hsla(6, 50%, 45%, 1);
+  color: #fff;
+  font-size: rem(15px);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &-enter {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+  }
+
+  &-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+  }
+}

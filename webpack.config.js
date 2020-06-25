@@ -43,6 +43,7 @@ let cssConfig = {
       loader: "css-loader", //2. Turns css into common js
       options: {
         url: false,
+        sourceMap: true,
       },
     },
     {

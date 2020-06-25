@@ -141,13 +141,17 @@ function App() {
                     <Terms />
                   </Route>
                   <Route path="/create-post">
-                    {!state.loggedIn ? <Redirect to="/" /> : <CreatePost />}
+                    {!state.loggedIn ? (
+                      <Redirect to="/login" />
+                    ) : (
+                      <CreatePost />
+                    )}
                   </Route>
                   <Route path="/post/:id" exact>
                     <SinglePost />
                   </Route>
                   <Route path="/post/:id/edit" exact>
-                    {!state.loggedIn ? <Redirect to="/" /> : <EditPost />}
+                    {!state.loggedIn ? <Redirect to="/login" /> : <EditPost />}
                   </Route>
                   <Route path="/profile/:username">
                     <Profile />
@@ -168,10 +172,10 @@ function App() {
             <CSSTransition
               timeout={300}
               in={state.isSearchOpen}
-              classNames="search-overlay"
+              classNames="c-search-overlay"
               unmountOnExit
             >
-              <div className="search-overlay">
+              <div className="c-search-overlay">
                 <Suspense fallback="">
                   <Search />
                 </Suspense>

@@ -1,0 +1,77 @@
+/* Dots Loading Animation */
+.c-dots-loading {
+  padding: 3.8rem 0;
+  text-align: center;
+
+  &--light {
+    div,
+    &::before,
+    &::after {
+      background-color: hsla(var(--color-primary-h), 15%, 35%, 1) !important;
+    }
+  }
+}
+
+.c-dots-loading::before,
+.c-dots-loading::after {
+  content: " ";
+}
+
+.c-dots-loading div,
+.c-dots-loading::before,
+.c-dots-loading::after {
+  margin: 0 .5rem;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: hsla(var(--color-primary-h), 15%, 77%, 1);
+  opacity: 0;
+}
+
+.c-dots-loading::before {
+  -moz-animation: c-dots-loading-animation 1s ease-in-out infinite;
+  -webkit-animation: c-dots-loading-animation 1s ease-in-out infinite;
+  -o-animation: c-dots-loading-animation 1s ease-in-out infinite;
+  animation: c-dots-loading-animation 1s ease-in-out infinite;
+}
+
+.c-dots-loading div {
+  -moz-animation: c-dots-loading-animation 1s ease-in-out 0.33s infinite;
+  -webkit-animation: c-dots-loading-animation 1s ease-in-out 0.33s infinite;
+  -o-animation: c-dots-loading-animation 1s ease-in-out 0.33s infinite;
+  animation: c-dots-loading-animation 1s ease-in-out 0.33s infinite;
+  -webkit-animation-fill-mode: infinite;
+  animation-fill-mode: infinite;
+}
+
+.c-dots-loading::after {
+  -moz-animation: c-dots-loading-animation 1s ease-in-out 0.66s infinite;
+  -webkit-animation: c-dots-loading-animation 1s ease-in-out 0.66s infinite;
+  -o-animation: c-dots-loading-animation 1s ease-in-out 0.66s infinite;
+  animation: c-dots-loading-animation 1s ease-in-out 0.66s infinite;
+  -webkit-animation-fill-mode: infinite;
+  animation-fill-mode: infinite;
+}
+
+@keyframes c-dots-loading-animation {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes c-dots-loading-animation {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+}

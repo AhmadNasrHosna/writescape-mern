@@ -1,7 +1,11 @@
 // #FORMS
 
-input:not([type="submit"]), textarea {
+input:not([type="submit"]) {
   line-height: 1;
+}
+
+input:not([type="submit"]),
+textarea {
   width: 100%;
   max-width: 100%;
   display: block;

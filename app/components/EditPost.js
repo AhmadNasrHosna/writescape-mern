@@ -3,6 +3,8 @@ import { useParams, Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 
+import { CSSTransition } from "react-transition-group";
+
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 
@@ -317,11 +319,14 @@ function EditPost() {
                   placeholder=""
                   autoComplete="off"
                 />
-                {title.hasErrors && (
-                  <div className="alert alert-danger small liveValidateMessage">
-                    {title.message}
-                  </div>
-                )}
+                <CSSTransition
+                  timeout={300}
+                  in={title.hasErrors}
+                  classNames="c-validate"
+                  unmountOnExit
+                >
+                  <div className="c-validate">{title.message}</div>
+                </CSSTransition>
               </div>
               <div className="o-form__group">
                 <label htmlFor="post-body" className="text-muted mb-1 d-block">
@@ -335,14 +340,17 @@ function EditPost() {
                   }}
                   name="body"
                   id="post-body"
-                  className="body-content tall-textarea form-control"
+                  className="o-form__textarea--tall"
                   type="text"
                 />
-                {body.hasErrors && (
-                  <div className="alert alert-danger small liveValidateMessage">
-                    {body.message}
-                  </div>
-                )}
+                <CSSTransition
+                  timeout={300}
+                  in={body.hasErrors}
+                  classNames="c-validate"
+                  unmountOnExit
+                >
+                  <div className="c-validate">{body.message}</div>
+                </CSSTransition>
               </div>
               <button
                 className="c-button c-button--medium c-button--accent"

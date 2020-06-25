@@ -114,6 +114,9 @@
 @import "components/_tooltip";
 @import "components/_profile";
 @import "components/_floating-underline";
+@import "components/_validate";
+@import "components/_dots-loading";
+@import "components/_search-overlay";
 
 /**
  * Patterns. (namespace: p-)

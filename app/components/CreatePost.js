@@ -3,10 +3,13 @@ import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 
-import Page from "./Page";
-import Container from "./Container";
+import { CSSTransition } from "react-transition-group";
+
 import DispatchContext from "../DispatchContext";
 import StateContext from "../StateContext";
+
+import Page from "./Page";
+import Container from "./Container";
 
 function CreatePost() {
   const appDispatch = useContext(DispatchContext);
@@ -56,6 +59,7 @@ function CreatePost() {
         // If there are no errors
         if (!draft.title.hasErrors && !draft.body.hasErrors) {
           draft.sendCount++;
+          draft.isPosting = true;
         }
         return;
       case "postId":
@@ -64,10 +68,10 @@ function CreatePost() {
     }
   }
 
-  const [{ title, body, postId, sendCount }, dispatch] = useImmerReducer(
-    reducer,
-    baseState
-  );
+  const [
+    { title, body, postId, sendCount, isPosting },
+    dispatch,
+  ] = useImmerReducer(reducer, baseState);
 
   useEffect(() => {
     // If sendCount greater than 0 send our request
@@ -157,11 +161,14 @@ function CreatePost() {
                   placeholder=""
                   autoComplete="off"
                 />
-                {title.hasErrors && (
-                  <div className="alert alert-danger small liveValidateMessage">
-                    {title.message}
-                  </div>
-                )}
+                <CSSTransition
+                  timeout={300}
+                  in={title.hasErrors}
+                  classNames="c-validate"
+                  unmountOnExit
+                >
+                  <div className="c-validate">{title.message}</div>
+                </CSSTransition>
               </div>
 
               <div className="o-form__group">
@@ -175,17 +182,23 @@ function CreatePost() {
                   }}
                   name="body"
                   id="post-body"
-                  className="body-content tall-textarea form-control"
+                  className="o-form__textarea--tall"
                   type="text"
                 ></textarea>
-                {body.hasErrors && (
-                  <div className="alert alert-danger small liveValidateMessage">
-                    {body.message}
-                  </div>
-                )}
+                <CSSTransition
+                  timeout={300}
+                  in={body.hasErrors}
+                  classNames="c-validate"
+                  unmountOnExit
+                >
+                  <div className="c-validate">{body.message}</div>
+                </CSSTransition>
               </div>
 
-              <button className="c-button c-button--medium c-button--accent">
+              <button
+                disabled={isPosting}
+                className="c-button c-button--medium c-button--accent"
+              >
                 Publish
               </button>
             </form>

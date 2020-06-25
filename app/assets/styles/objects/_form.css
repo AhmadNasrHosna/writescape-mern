@@ -76,6 +76,16 @@
     font-weight: 600;
   }
 
+  &__textarea {
+    &--tall {
+      height: rem(160px);
+
+      @mixin bp md {
+        height: rem(320px);
+      }
+    }
+  }
+
   label {
     color: hsl(var(--color-h), 15%, 35%);
     font-weight: 500;

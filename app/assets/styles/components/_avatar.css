@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: rem(16px);
+    font-size: rem(15px);
   }
 
   &--red {
@@ -26,7 +26,6 @@
     background-color: hsl(var(--color-primary-h), 6%, 80%);
 
     .c-avatar__firstletter {
-      border-radius: 50%;
       background: hsl(var(--color-primary-h), 55%, 42%);
     }
   }
@@ -37,7 +36,6 @@
     background-color: hsla(206, 8%, 76%, 1);
 
     .c-avatar__firstletter {
-      border-radius: 50%;
       background: hsl(206, 78%, 33%);
     }
   }
@@ -49,6 +47,17 @@
       0 0 0 6px hsl(var(--color-primary-h), 30%, 78%),
       0 0 0 11px hsl(var(--color-primary-h), 30%, 82.5%);
     background-color: hsla(var(--color-primary-h), 17%, 59%, 1);
+
+    .c-avatar__firstletter {
+      background: hsl(var(--color-primary-h), 55%, 42%);
+    }
+  }
+
+  &--black {
+    box-shadow: 0 3px 11px 0 hsla(var(--color-primary-h), 20%, 30%, 0.75),
+      0 0 0 5px hsl(var(--color-primary-h), 16%, 28%),
+      0 0 0 9px hsl(var(--color-primary-h), 16%, 23%);
+    background-color: hsl(var(--color-primary-h), 18%, 29%);
 
     .c-avatar__firstletter {
       background: hsl(var(--color-primary-h), 55%, 42%);

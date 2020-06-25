@@ -1,11 +1,11 @@
 import React from "react";
 
-function ComponentName() {
+function LoadingIcon({ theme }) {
   return (
-    <div className="dots-loading">
+    <div className={"c-dots-loading " + (theme ? "c-dots-loading--light" : "")}>
       <div></div>
     </div>
   );
 }
 
-export default ComponentName;
+export default LoadingIcon;
