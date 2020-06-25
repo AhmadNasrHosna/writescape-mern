@@ -166,13 +166,7 @@ function Search() {
                   </p>
                 </div>
                 <ul className="o-list u-flow">
-                  <SimpleBar
-                    style={{
-                      maxHeight: "calc(100vh - (3.6rem + 12rem + 95px))",
-                    }}
-                    forceVisible="y"
-                    autoHide={false}
-                  >
+                  <SimpleBar forceVisible="y" autoHide={false}>
                     {state.searchResults.map((post) => {
                       return (
                         <PostCard

@@ -59,6 +59,13 @@
       visibility: visible;
     }
 
+    [data-simplebar] {
+       max-height: calc(100vh - (3.6rem + 12rem + 76px));
+       @mixin bp sm {
+         max-height: calc(100vh - (3.6rem + 12rem + 95px));
+       }
+    }
+
     .simplebar-content {
       padding-right: 14px !important;
 
