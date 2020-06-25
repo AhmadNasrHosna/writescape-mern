@@ -92,9 +92,9 @@ function Search() {
 
   return (
     <>
-      <div className="c-search-overlay__top">
+      <div className="c-live-search__top">
         <div className="o-container o-container--medium">
-          <div className="c-search-overlay__field">
+          <div className="c-live-search__field">
             <label htmlFor="live-search-field">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ function Search() {
             />
             <span
               onClick={() => appDispatch({ type: "closeSearch" })}
-              className="close-live-search"
+              className="c-live-search__close"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,22 +139,22 @@ function Search() {
           </div>
         </div>
       </div>
-      <div className="c-search-overlay__bottom">
+      <div className="c-live-search__bottom">
         <div className="o-container o-container--narrow">
           {state.show == "loading" && (
-            <div className="c-search-overlay__loading">
+            <div className="c-live-search__loading">
               <LoadingIcon theme="light" />
             </div>
           )}
           <div
             className={
-              "c-search-overlay__results " +
+              "c-live-search__results " +
               (state.show == "results" ? "is-visible" : "")
             }
           >
             {Boolean(state.searchResults.length) && (
               <ul className="o-list u-flow">
-                <div className="c-search-overlay__state">
+                <div className="c-live-search__state">
                   <p>
                     <strong>Search Results</strong> (
                     {state.searchResults.length}{" "}
@@ -177,7 +177,7 @@ function Search() {
               </ul>
             )}
             {!Boolean(state.searchResults.length) && (
-              <div className="c-search-overlay__state">
+              <div className="c-live-search__state">
                 <p className="u-align-center">
                   Sorry, we could not find any results for that search. Try
                   again.

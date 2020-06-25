@@ -116,7 +116,7 @@
 @import "components/_floating-underline";
 @import "components/_validate";
 @import "components/_dots-loading";
-@import "components/_search-overlay";
+@import "components/_live-search";
 
 /**
  * Patterns. (namespace: p-)

@@ -11,6 +11,46 @@
   flex-direction: column;
   align-items: flex-start;
 
+  &__author {
+    margin-top: auto;
+
+    .c-avatar {
+      float: left;
+    }
+  }
+
+  &__username {
+    font-size: rem(16px);
+    color: hsla(6, 15%, 35%, 1);
+    background: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 100%, 0) 70%,
+      hsla(206, 35%, 90%, 1) 70%
+    );
+    margin-left: 1.25rem;
+    vertical-align: bottom;
+  }
+
+  &__date {
+    display: inline-block;
+    padding: 0.35em 1em 0.3em;
+    background: hsla(6, 35%, 88%, 1);
+    font-size: 12px;
+    margin-top: 1.55rem;
+    border-radius: 1px;
+    box-shadow: 3px 3px 0 0px hsl(206, 16%, 20%);
+    transition: all 300ms ease;
+  }
+
+  &__title {
+    font-family: var(--font-family-special);
+    font-size: rem(34px);
+    line-height: 1.2;
+    color: hsla(var(--color-primary-h), 10%, 27%, 1);
+    letter-spacing: -0.02em;
+    transition: all 300ms ease;
+  }
+
   &--profile {
     background: hsla(var(--color-primary-h), 14%, 96%, 1);
   }
@@ -70,46 +110,6 @@
         color: #fff !important;
       }
     }
-  }
-
-  &__author {
-    margin-top: auto;
-
-    .c-avatar {
-      float: left;
-    }
-  }
-
-  &__username {
-    font-size: rem(16px);
-    color: hsla(6, 15%, 35%, 1);
-    background: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 100%, 0) 70%,
-      hsla(206, 35%, 90%, 1) 70%
-    );
-    margin-left: 1.25rem;
-    vertical-align: bottom;
-  }
-
-  &__date {
-    display: inline-block;
-    padding: 0.35em 1em 0.3em;
-    background: hsla(6, 35%, 88%, 1);
-    font-size: 12px;
-    margin-top: 1.55rem;
-    border-radius: 1px;
-    box-shadow: 3px 3px 0 0px hsl(206, 16%, 20%);
-    transition: all 300ms ease;
-  }
-
-  &__title {
-    font-family: var(--font-family-special);
-    font-size: rem(34px);
-    line-height: 1.2;
-    color: hsla(var(--color-primary-h), 10%, 27%, 1);
-    letter-spacing: -0.02em;
-    transition: all 300ms ease;
   }
 
   &:hover {

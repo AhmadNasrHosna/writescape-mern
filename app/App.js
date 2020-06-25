@@ -172,10 +172,10 @@ function App() {
             <CSSTransition
               timeout={300}
               in={state.isSearchOpen}
-              classNames="c-search-overlay"
+              classNames="c-live-search"
               unmountOnExit
             >
-              <div className="c-search-overlay">
+              <div className="c-live-search">
                 <Suspense fallback="">
                   <Search />
                 </Suspense>
