@@ -2,6 +2,9 @@ import React, { useEffect, useContext } from "react";
 import { useImmer } from "use-immer";
 import Axios from "axios";
 
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
+
 import DispatchContext from "../DispatchContext";
 
 import PostCard from "./PostCard";
@@ -138,7 +141,7 @@ function Search() {
             </span>
           </div>
         </div>
-      </div>
+      </div>{" "}
       <div className="c-live-search__bottom">
         <div className="o-container o-container--narrow">
           {state.show == "loading" && (
@@ -149,11 +152,12 @@ function Search() {
           <div
             className={
               "c-live-search__results " +
-              (state.show == "results" ? "is-visible" : "")
+              (state.show == "results" ? "is-visible " : "") +
+              "u-flow"
             }
           >
             {Boolean(state.searchResults.length) && (
-              <ul className="o-list u-flow">
+              <>
                 <div className="c-live-search__state">
                   <p>
                     <strong>Search Results</strong> (
@@ -161,20 +165,30 @@ function Search() {
                     {state.searchResults.length == 1 ? "item" : "items"} found)
                   </p>
                 </div>
-                {state.searchResults.map((post) => {
-                  return (
-                    <PostCard
-                      post={post}
-                      key={post._id}
-                      onClick={() => {
-                        appDispatch({ type: "closeSearch" });
-                      }}
-                      className="c-post-card--search"
-                      avatarState="black"
-                    />
-                  );
-                })}
-              </ul>
+                <ul className="o-list u-flow">
+                  <SimpleBar
+                    style={{
+                      maxHeight: "calc(100vh - (3.6rem + 12rem + 95px))",
+                    }}
+                    forceVisible="y"
+                    autoHide={false}
+                  >
+                    {state.searchResults.map((post) => {
+                      return (
+                        <PostCard
+                          post={post}
+                          key={post._id}
+                          onClick={() => {
+                            appDispatch({ type: "closeSearch" });
+                          }}
+                          className="c-post-card--search"
+                          avatarState="black"
+                        />
+                      );
+                    })}
+                  </SimpleBar>
+                </ul>
+              </>
             )}
             {!Boolean(state.searchResults.length) && (
               <div className="c-live-search__state">

@@ -1,4 +1,4 @@
-.__react_component_tooltip {
+.custom-tooltip {
   background: hsl(var(--color-primary-h), 16%, 20%) !important;
   padding: 5px 10px !important;
 
