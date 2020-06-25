@@ -60,7 +60,7 @@
     }
 
     [data-simplebar] {
-       max-height: calc(100vh - (3.6rem + 12rem + 50px));
+       max-height: calc(100vh - (3.6rem + 14rem + 95px));
        @mixin bp sm {
          max-height: calc(100vh - (3.6rem + 12rem + 95px));
        }
