@@ -9,11 +9,7 @@
 
 // Outer container including header
 .o-page {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-
-  @media (min-width: 36em) {
-    display: grid;
-    grid-template-rows: auto auto 2.5rem;
-  }
 }
-
