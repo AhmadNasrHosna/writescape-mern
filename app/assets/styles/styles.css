@@ -84,6 +84,9 @@
 @import "objects/_list";
 @import "objects/_section";
 @import "objects/_form";
+@import "objects/_main";
+@import "objects/_page";
+
 
 /**
  * Layouts. (namespace: l-)

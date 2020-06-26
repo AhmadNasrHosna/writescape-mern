@@ -120,7 +120,6 @@ function Search() {
               type="text"
               autoComplete="off"
               id="live-search-field"
-              className="live-search-field"
               placeholder="What are you interested in?"
             />
             <span

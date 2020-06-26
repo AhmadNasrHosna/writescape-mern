@@ -8,6 +8,12 @@
   position: relative;
   padding: 1px;
 
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
   &__firstletter {
     border-radius: 50%;
     width: 100%;
@@ -77,9 +83,47 @@
     }
   }
 
-  img {
-    position: absolute;
-    left: 0;
-    top: 0;
+  &--tiny {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 3px 11px 0 hsla(var(--color-primary-h), 20%, 20%, 0.35),
+      0 0 0 3px hsl(var(--color-primary-h), 20%, 92%),
+      0 0 0 6px hsl(var(--color-primary-h), 20%, 97%);
+
+    .c-avatar__firstletter {
+      font-size: rem(11px);
+    }
+  }
+
+  &--chat {
+    width: 30px;
+    height: 30px;
+    box-shadow: none;
+    border: 1px solid transparent;
+    background-color: transparent;
+    position: relative;
+    overflow: unset;
+
+    .c-avatar__firstletter {
+      font-size: rem(12.5px);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: #469a1f;
+      position: absolute;
+      z-index: 2;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #fff;
+      bottom: -1px;
+      right: 1px;
+    }
+
+    img {
+      border-radius: 50%;
+    }
   }
 }
