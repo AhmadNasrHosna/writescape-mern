@@ -21,6 +21,7 @@
     @mixin bp sm {
       width: auto;
       top: 38px;
+      bottom: auto;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 3px;
@@ -37,36 +38,24 @@
     opacity: 0;
     visibility: hidden;
     transform: scale(1.2);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1.2);
-    }
   }
 
   9% {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1);
-    }
   }
 
   91% {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1);
-    }
   }
 
   100% {
     opacity: 0;
     visibility: hidden;
     transform: scale(1.2);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1.2);
-    }
   }
 }
 
@@ -75,34 +64,76 @@
     opacity: 0;
     visibility: hidden;
     transform: scale(1.2);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1.2);
-    }
   }
 
   9% {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1);
-    }
   }
 
   91% {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-    @mixin bp sm {
-      transform: translateX(-50%) scale(1);
-    }
   }
 
   100% {
     opacity: 0;
     visibility: hidden;
     transform: scale(1.2);
-    @mixin bp sm {
+  }
+}
+
+@mixin bp sm {
+  @keyframes o-floating-alert {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) scale(1.2);
+    }
+
+    9% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+    }
+
+    91% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) scale(1.2);
+    }
+  }
+
+  @-webkit-keyframes o-floating-alert {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) scale(1.2);
+    }
+
+    9% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+    }
+
+    91% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
       transform: translateX(-50%) scale(1.2);
     }
   }
