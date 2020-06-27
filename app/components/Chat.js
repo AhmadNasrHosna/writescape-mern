@@ -1,6 +1,10 @@
 import React, { useEffect, useContext, useRef } from "react";
 import { useImmer } from "use-immer";
 import { Link } from "react-router-dom";
+
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
+
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 
@@ -35,7 +39,11 @@ function Chat() {
 
   useEffect(() => {
     // Scroll to the bottom of the chat log to see the new message
-    chatLog.current.scrollTop = chatLog.current.scrollHeight;
+    chatLog.current.querySelector(
+      ".simplebar-content-wrapper"
+    ).scrollTop = chatLog.current.querySelector(
+      ".simplebar-content-wrapper"
+    ).scrollHeight;
 
     if (state.chatMessages.length && !isChatOpen) {
       appDispatch({ type: "incrementUnreadChatCount" });
@@ -70,6 +78,8 @@ function Chat() {
     // 1. Prevent the browser default behavior of submitting a form
     e.preventDefault();
 
+    if (state.fieldValue.trim() == "") return;
+
     // 2. Send messages to chat server
     socket.current.emit("chatFromBrowser", {
       message: state.fieldValue,
@@ -90,15 +100,9 @@ function Chat() {
   }
 
   return (
-    <div
-      id="chat-wrapper"
-      className={
-        "chat-wrapper shadow border-top border-left border-right " +
-        (isChatOpen ? "chat-wrapper--is-visible" : "")
-      }
-    >
+    <div className={"c-chat " + (isChatOpen ? "c-chat--is-visible" : "")}>
       <div
-        className="chat-title-bar bg-primary"
+        className="c-chat__title-bar"
         onClick={() => appDispatch({ type: "toggleChat" })}
       >
         <div className="c-avatar c-avatar--red c-avatar--chat">
@@ -108,7 +112,7 @@ function Chat() {
           <img src={user.avatar} alt={`Profile picture of ${user.username}`} />
         </div>
         <span>Chat Messaging</span>
-        <span className="chat-title-bar-new">
+        <span className="c-chat__new-message">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="26"
@@ -126,54 +130,50 @@ function Chat() {
           </svg>
         </span>
       </div>
-      <div id="chat" className="chat-log" ref={chatLog}>
-        {state.chatMessages.map(({ message, username, avatar }, index) => {
-          if (username == user.username) {
-            return (
-              <div className="chat-self" key={index}>
-                <div className="chat-message">
-                  <div className="chat-message-inner">{message}</div>
+      <div className="c-chat__log" ref={chatLog}>
+        <SimpleBar style={{ maxHeight: 242 }} forceVisible="y" autoHide={false}>
+          {state.chatMessages.map(({ message, username, avatar }, index) => {
+            if (username == user.username) {
+              return (
+                <div className="c-chat__self" key={index}>
+                  <div className="c-chat__message">
+                    <div className="c-chat__message-inner">{message}</div>
+                  </div>
+                  <div className="c-avatar c-avatar--red c-avatar--tiny">
+                    <span className="c-avatar__firstletter">
+                      {username.slice(0, 1).toUpperCase()}
+                    </span>
+                    <img src={avatar} alt={`Profile picture of ${username}`} />
+                  </div>
                 </div>
-                <div className="c-avatar c-avatar--red c-avatar--tiny">
-                  <span className="c-avatar__firstletter">
-                    {username.slice(0, 1).toUpperCase()}
-                  </span>
-                  <img src={avatar} alt={`Profile picture of ${username}`} />
+              );
+            }
+            return (
+              <div className="c-chat__other" key={index}>
+                <Link to={`/profile/${username}`}>
+                  <div className="c-avatar c-avatar--red c-avatar--tiny">
+                    <span className="c-avatar__firstletter">
+                      {username.slice(0, 1).toUpperCase()}
+                    </span>
+                    <img src={avatar} alt={`Profile picture of ${username}`} />
+                  </div>
+                </Link>
+                <div className="c-chat__message">
+                  <div className="c-chat__message-inner">
+                    <Link to={`/profile/${username}`}>
+                      <strong>{username}: </strong>
+                    </Link>
+                    {message}
+                  </div>
                 </div>
               </div>
             );
-          }
-          return (
-            <div className="chat-other" key={index}>
-              <Link to={`/profile/${username}`}>
-                <div className="c-avatar c-avatar--red c-avatar--tiny">
-                  <span className="c-avatar__firstletter">
-                    {username.slice(0, 1).toUpperCase()}
-                  </span>
-                  <img src={avatar} alt={`Profile picture of ${username}`} />
-                </div>
-              </Link>
-              <div className="chat-message">
-                <div className="chat-message-inner">
-                  <Link to={`/profile/${username}`}>
-                    <strong>{username}: </strong>
-                  </Link>
-                  {message}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+          })}
+        </SimpleBar>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        id="chatForm"
-        className="chat-form border-top"
-      >
+      <form onSubmit={handleSubmit} className="c-chat__form">
         <input
           type="text"
-          className="chat-field"
-          id="chatField"
           placeholder="Type a message…"
           autoComplete="off"
           ref={chatField}

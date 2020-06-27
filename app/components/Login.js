@@ -10,10 +10,14 @@ function Login() {
   // Pieces of state
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     // 1. Prevent the browser default behavior of submitting a form
     e.preventDefault();
+
+    // Disable submit button after submitting after first click
+    setIsLoading(true);
 
     // 2. Send off a network request to our backend server
     try {
@@ -32,9 +36,11 @@ function Login() {
           type: "flashMessage",
           value: "Invalid username or password.",
         });
+        setIsLoading(false);
       }
     } catch (e) {
       console.log("There was a problem.");
+      setIsLoading(false);
     }
   }
 
@@ -68,6 +74,7 @@ function Login() {
       <button
         type="submit"
         className="c-button c-button--primary c-button--shadow c-button--100% c-button--large u-pv-2 u-mt-1 u-ls-p02"
+        disabled={isLoading}
       >
         Sign in to Writescape
       </button>

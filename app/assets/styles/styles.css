@@ -120,6 +120,7 @@
 @import "components/_validate";
 @import "components/_dots-loading";
 @import "components/_live-search";
+@import "components/_chat";
 
 /**
  * Patterns. (namespace: p-)

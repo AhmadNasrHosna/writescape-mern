@@ -29,6 +29,7 @@ function Register() {
       message: "",
     },
     submitCount: 0,
+    isLoading: false,
   };
 
   function reducer(draft, { type, value, noRequest }) {
@@ -112,6 +113,7 @@ function Register() {
           !draft.password.hasErrors
         ) {
           draft.submitCount++;
+          draft.isLoading = true;
         }
         return;
     }
@@ -338,6 +340,7 @@ function Register() {
       <button
         type="submit"
         className="c-button c-button--primary c-button--shadow c-button--100% c-button--large u-pv-2 u-mt-1 u-ls-p02"
+        disabled={state.isLoading}
       >
         Sign up for Writescape
       </button>

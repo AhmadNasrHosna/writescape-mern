@@ -12,9 +12,9 @@ function Shell() {
     <StateContext.Provider value={{ loggedIn: false }}>
       <Router>
         <Header staticEmpty={true} />
-        <div className="py-5 my-5 text-center">
+        <main className="o-main">
           <LoadingDotsIcon />
-        </div>
+        </main>
         <Footer />
       </Router>
     </StateContext.Provider>
@@ -29,14 +29,8 @@ function html(x) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Writescape</title>
-      <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"
-        integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
-        crossorigin="anonymous"></script>
       <link
-        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
-      <link
-        href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Padauk:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
     </head>
     <body>

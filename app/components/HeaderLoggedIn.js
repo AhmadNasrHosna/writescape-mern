@@ -42,7 +42,7 @@ function HeaderLoggedIn() {
         onClick={() => appDispatch({ type: "toggleChat" })}
       >
         {appState.unreadChatCount ? (
-          <span className="chat-count-badge text-white">
+          <span className="p-header__chat__count-badge">
             {appState.unreadChatCount < 9 ? appState.unreadChatCount : "9+"}
           </span>
         ) : (
