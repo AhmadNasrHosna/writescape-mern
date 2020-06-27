@@ -8,13 +8,16 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  transform: translateY(calc(100% - 51px));
-  transition: 0.33s transform ease-in-out;
   border-radius: 6px 6px 0 0;
   overflow: hidden;
   box-shadow: 0 0 10px hsla(var(--color-primary-h), 16%, 20%, 0.25);
   border: 1px solid hsl(var(--color-primary-h), 20%, 80%);
   border-bottom: 0;
+
+  transform: translateY(calc(100% - 51px));
+  transform-origin: top;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
 
   &--is-visible {
     transform: translateY(0);
