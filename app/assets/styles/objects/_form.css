@@ -92,6 +92,6 @@
   }
 
   &--accent {
-    --color-h: 206;
+    --color-h: var(--color-accent-h);
   }
 }

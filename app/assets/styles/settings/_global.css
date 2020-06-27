@@ -33,24 +33,19 @@
     var(--color-primary-s),
     var(--color-primary-l)
   );
-  --color-secondary-h: 34;
-  --color-secondary-s: 42%;
-  --color-secondary-l: 85%;
-  --color-secondary: hsl(
-    var(--color-secondary-h),
-    var(--color-secondary-s),
-    var(--color-secondary-l)
-  );
-  --color-gradient: linear-gradient(
-    45deg,
-    var(--color-primary),
-    var(--color-secondary)
+  --color-accent-h: 206;
+  --color-accent-s: 78%;
+  --color-accent-l: 33%;
+  --color-accent: hsl(
+    var(--color-accent-h),
+    var(--color-accent-s),
+    var(--color-accent-l)
   );
   --color-text-900: hsl(var(--color-primary-h), 15%, 15%);
   --color-text-800: hsl(var(--color-primary-h), 15%, 20%);
   --color-link: hsl(var(--color-primary-h), 100%, 42%);
-
   --color-border: hsl(var(--color-primary-h), 10%, 88%);
+
   --font-family-plain: "Archivo", system-ui;
   --font-family-special: "Archivo Narrow", system-ui;
   --font-family-display: "Sporting Grotesque", "Archivo Narrow", system-ui;

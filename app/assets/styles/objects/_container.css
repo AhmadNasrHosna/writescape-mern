@@ -9,8 +9,8 @@
 
 :root {
   --container-width-xs: rem(600px);
-  --container-width-sm: rem(976px);
-  --container-width-md: rem(1024px);
+  --container-width-sm: rem(800px);
+  --container-width-md: rem(1054px);
   --container-width-lg: rem(1200px);
   --container-padding: calc(var(--gap) * 1.5);
 }
@@ -24,11 +24,11 @@
   margin: 0 auto;
 
   &--narrow {
-    max-width: rem(800px);
+    max-width: var(--container-width-sm);
   }
 
   &--medium {
-    max-width: rem(1054px);
+    max-width: var(--container-width-md);
   }
 
   .o-container {
