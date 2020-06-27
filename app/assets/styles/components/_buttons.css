@@ -19,12 +19,12 @@
 
 .c-button:hover {
   box-shadow: 0 0 0 3px hsl(var(--color-primary-h), 36%, 97%, 0.5),
-    0 4px 10px hsla(6, 15%, 25%, 0.35);
+    0 4px 10px hsla(var(--color-primary-h), 15%, 25%, 0.35);
 }
 
 .c-button:focus {
   box-shadow: 0 0 0 3px hsla(var(--color-primary-h), 12%, 88%, 1),
-    0 4px 10px hsla(6, 15%, 25%, 0.25);
+    0 4px 10px hsla(var(--color-primary-h), 15%, 25%, 0.25);
 }
 
 .c-button:active {
@@ -61,17 +61,17 @@
 }
 
 .c-button--accent {
-  background-color: hsl(206, 16%, 20%);
+  background-color: hsl(var(--color-accent-h), 16%, 20%);
   color: #fff;
 
   &:hover {
-    box-shadow: 0 0 0 3px hsl(206, 36%, 97%, 0.5),
-      0 4px 10px hsla(206, 15%, 25%, 0.35);
+    box-shadow: 0 0 0 3px hsl(var(--color-accent-h), 36%, 97%, 0.5),
+      0 4px 10px hsla(var(--color-accent-h), 15%, 25%, 0.35);
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px hsla(206, 12%, 88%, 1),
-      0 4px 10px hsla(206, 15%, 25%, 0.35);
+    box-shadow: 0 0 0 3px hsla(var(--color-accent-h), 12%, 88%, 1),
+      0 4px 10px hsla(var(--color-accent-h), 15%, 25%, 0.35);
   }
 }
 

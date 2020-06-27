@@ -2,7 +2,7 @@
   top: -5px;
   position: absolute;
   padding: 0.5rem 1rem;
-  background: hsla(6, 50%, 45%, 1);
+  background: var(--color-primary);
   color: #fff;
   font-size: rem(15px);
 

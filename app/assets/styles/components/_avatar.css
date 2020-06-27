@@ -37,12 +37,12 @@
   }
 
   &--blue {
-    box-shadow: 0 3px 11px 0 hsla(206, 15%, 20%, 0.2),
-      0 0 0 5px hsl(206, 10%, 93%), 0 0 0 9px hsl(206, 10%, 97%);
-    background-color: hsla(206, 8%, 76%, 1);
+    box-shadow: 0 3px 11px 0 hsla(var(--color-accent-h), 15%, 20%, 0.2),
+      0 0 0 5px hsl(var(--color-accent-h), 10%, 93%), 0 0 0 9px hsl(var(--color-accent-h), 10%, 97%);
+    background-color: hsla(var(--color-accent-h), 8%, 76%, 1);
 
     .c-avatar__firstletter {
-      background: hsl(206, 78%, 33%);
+      background: hsl(var(--color-accent-h), 78%, 33%);
     }
   }
 

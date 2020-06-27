@@ -1,4 +1,6 @@
-// #FORMS
+/*
+** #FORMS
+**/
 
 input:not([type="submit"]) {
   line-height: 1;

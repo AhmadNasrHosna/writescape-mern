@@ -21,10 +21,10 @@ function Search() {
 
   useEffect(() => {
     // Listen for any time the user press any key in the keyboard
-    document.addEventListener("keyup", searchKeyPressHandler);
+    document.addEventListener("keydown", searchKeyPressHandler);
     // Clean up our event listener when component was unmounted
     return () => {
-      document.removeEventListener("keyup", searchKeyPressHandler);
+      document.removeEventListener("keydown", searchKeyPressHandler);
     };
   }, []);
 
