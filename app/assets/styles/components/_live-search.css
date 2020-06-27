@@ -1,3 +1,10 @@
+/*
+ * 1.  Font appears Blurry
+ * https://stackoverflow.com/questions/27385126/chrome-font-appears-blurry
+
+ */
+
+
 /* Search Overaly */
 .c-live-search {
   display: flex;
@@ -9,6 +16,10 @@
   bottom: 0;
   right: 0;
   background-color: hsla(calc(var(--color-primary-h) + 14), 20%, 84%, 0.91);
+
+  -webkit-font-smoothing: antialiased; /* [1] */
+  -webkit-filter: blur(0.000001px); /* [1] */
+  filter: blur(0.000001px); /* [1] */
 
   &-enter {
     opacity: 0;
