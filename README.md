@@ -20,6 +20,8 @@ Front-end source code: [GitHub](https://github.com/ahmedhosna95/writescape-mern)
   - NPM Scripts + Webpack
   - PostCSS
   - stylelint
+  
+  ---
 
 ## Application Features
 
