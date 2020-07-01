@@ -2,25 +2,25 @@
 
 Writescape is a modern full-stack single-page app (SPA) hosted and deployed on [Netlify](https://writescape.netlify.app). Both the front-end and back-end are built in JavaScript. Here is the breakdown of what was used to build it:
 
-#### Backend:
+## Backend:
   - MongoDB, the most popular database for modern apps.
   - Express.js, a minimal and flexible Node.js web app framework.
   - Node.js, a JavaScript runtime.
 
 Back-end source code: [GitHub](https://github.com/ahmedhosna95/writescape-backend-api).
 
-#### Frontend:
+## Frontend:
   - React.js
   - CSS3
 
 Front-end source code: [GitHub](https://github.com/ahmedhosna95/writescape-mern).
 
-#### Project Process Workflow:
+## Project Process Workflow:
   - NPM Scripts + Webpack
   - PostCSS
   - stylelint
 
-#### Application Features
+## Application Features
 
   - The application lets any user browse the articles that have been written by other authenticated users.
   - Any user can view profiles of the authenticated users.
