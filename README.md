@@ -1,4 +1,5 @@
 # **writescape-mern** ([writescape.netlify.app](https://writescape.netlify.app/))
+[![Writescape home guest](https://ahmedhosna.netlify.app/assets/images/portfolio//writescape-screenshots/writescape-banner.png)](https://ahmedhosna.netlify.app/portfolio/writescape-mern/)
 
 Writescape is a modern full-stack single-page app (SPA) hosted and deployed on [Netlify](https://writescape.netlify.app). Both the front-end and back-end are built in JavaScript. Here is the breakdown of what was used to build it:
 
