@@ -19,7 +19,7 @@ Front-end source code: [GitHub](https://github.com/ahmedhosna95/writescape-mern)
 ## Project Process Workflow:
   - NPM Scripts + Webpack
   - PostCSS
-  - stylelint
+  - stylelint linter
   
   ---
 
