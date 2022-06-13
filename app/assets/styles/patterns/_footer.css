@@ -120,7 +120,7 @@
   }
 
   &__logo {
-    font-size: 12vw;
+    font-size: min(12vw, 182px);
     line-height: 1;
     margin-bottom: -0.325em;
     display: block;
